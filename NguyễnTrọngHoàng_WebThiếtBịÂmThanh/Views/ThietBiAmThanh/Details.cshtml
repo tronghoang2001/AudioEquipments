@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h4>>>> Thông Tin Sản Phẩm <<<</h4>
+<ul>
+    <img src="~/Content/images/@Model.hinhAnhSP" style="width:450px; float:right" />
+    <li>Tên sản phẩm: @Model.tenSanPham </li>
+    <li style="color: red">Giá: @Model.giaSanPham VNĐ</li>
+    <li>Mô tả: @Model.chiTietSP </li>
+    <li>
+        <div style="background-color:red; display:block; text-decoration:none; text-align: center; width:120px; height:35px; 
+             padding-top:5px; font-weight:bold; float:right; border-radius:15px; justify-content:center; margin-top:25px">
+            <a href="@Url.Action("ThemGioHang", "GioHang", new { @iIDSanPham = @Model.idSanPham, @strURL=Request.Url.ToString() })" 
+               style="color:white">
+                    ĐẶT MUA
+            </a>
+        </div>
+    </li>
+</ul>
