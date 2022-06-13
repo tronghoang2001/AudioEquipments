@@ -55,5 +55,66 @@ namespace NguyễnTrọngHoàng_WebThiếtBịÂmThanh.Controllers
             var sanpham = from sp in data.SanPhams where sp.idSanPham == id select sp;
             return View(sanpham.Single());
         }
+        [HttpGet]
+        public ActionResult BinhLuan()
+        {
+            if (Session["Taikhoan"] == null || Session["Taikhoan"].ToString() == "")
+            {
+                return RedirectToAction("DangNhap", "NguoiDung");
+            }
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult BinhLuan(FormCollection collection)
+        {
+            BinhLuan binhluan = new BinhLuan();
+            KhachHang kh = (KhachHang)Session["Taikhoan"];
+            var noidungbl = collection["noiDungBL"];
+
+            binhluan.idKhachHang = kh.idKhachHang;
+            binhluan.noiDungBL = noidungbl;
+            binhluan.hoTenNguoiBL = kh.hoTenKH;
+            if (ModelState.IsValid)
+            {
+                data.BinhLuans.InsertOnSubmit(binhluan);
+                data.SubmitChanges();
+            }
+            return RedirectToAction("Index");
+        }
+        public ActionResult LienHe()
+        {
+            if (Session["Taikhoan"] == null || Session["Taikhoan"].ToString() == "")
+            {
+                return RedirectToAction("DangNhap", "NguoiDung");
+            }
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult LienHe(FormCollection collection)
+        {
+            LienHe lienhe = new LienHe();
+            KhachHang kh = (KhachHang)Session["Taikhoan"];
+            var noidunglh = collection["noiDungLH"];
+
+            lienhe.idKhachHang = kh.idKhachHang;
+            lienhe.noiDungLH = noidunglh;
+            if (ModelState.IsValid)
+            {
+                data.LienHes.InsertOnSubmit(lienhe);
+                data.SubmitChanges();
+            }
+            return RedirectToAction("Index");
+        }
+        private List<BinhLuan> DSBinhLuan(int count)
+        {
+            return data.BinhLuans.OrderByDescending(a => a.idBinhLuan).Take(count).ToList();
+        }
+        public ActionResult HienThiBinhLuan()
+        {
+            var binhluanmoi = DSBinhLuan(12);
+            return View(binhluanmoi);
+        }
     }
 }

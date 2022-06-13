@@ -1,13 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BanThietBiAmThanh" Class="dbThietBiAmThanhDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=asustuf\sqlserver2019;Initial Catalog=BanThietBiAmThanh;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="BanThietBiAmThanhConnectionString2" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.CTDH" Member="CTDHs">
-    <Type Name="CTDH">
-      <Column Name="idDonHang" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="idSanPham" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="soLuong" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="donGia" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Association Name="DonHang_CTDH" Member="DonHang" ThisKey="idDonHang" OtherKey="idDonHang" Type="DonHang" IsForeignKey="true" />
-      <Association Name="SanPham_CTDH" Member="SanPham" ThisKey="idSanPham" OtherKey="idSanPham" Type="SanPham" IsForeignKey="true" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=ASUSTUF\SQLSERVER2019;Initial Catalog=BanThietBiAmThanh;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="BanThietBiAmThanhConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.BinhLuan" Member="BinhLuans">
+    <Type Name="BinhLuan">
+      <Column Name="idBinhLuan" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="noiDungBL" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="idKhachHang" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="hoTenNguoiBL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="KhachHang_BinhLuan" Member="KhachHang" ThisKey="idKhachHang" OtherKey="idKhachHang" Type="KhachHang" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.BaoHanh" Member="BaoHanhs">
@@ -25,12 +24,14 @@
       <Association Name="SanPham_BaoHanh" Member="SanPham" ThisKey="idSanPham" OtherKey="idSanPham" Type="SanPham" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.BinhLuan" Member="BinhLuans">
-    <Type Name="BinhLuan">
-      <Column Name="idBinhLuan" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="noiDungBL" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="idKhachHang" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="KhachHang_BinhLuan" Member="KhachHang" ThisKey="idKhachHang" OtherKey="idKhachHang" Type="KhachHang" IsForeignKey="true" />
+  <Table Name="dbo.CTDH" Member="CTDHs">
+    <Type Name="CTDH">
+      <Column Name="idDonHang" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idSanPham" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="soLuong" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="donGia" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="DonHang_CTDH" Member="DonHang" ThisKey="idDonHang" OtherKey="idDonHang" Type="DonHang" IsForeignKey="true" />
+      <Association Name="SanPham_CTDH" Member="SanPham" ThisKey="idSanPham" OtherKey="idSanPham" Type="SanPham" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.DonHang" Member="DonHangs">
@@ -58,8 +59,8 @@
       <Column Name="diaChiKH" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="taiKhoanKH" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="matKhauKH" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Association Name="KhachHang_BaoHanh" Member="BaoHanhs" ThisKey="idKhachHang" OtherKey="idKhachHang" Type="BaoHanh" />
       <Association Name="KhachHang_BinhLuan" Member="BinhLuans" ThisKey="idKhachHang" OtherKey="idKhachHang" Type="BinhLuan" />
+      <Association Name="KhachHang_BaoHanh" Member="BaoHanhs" ThisKey="idKhachHang" OtherKey="idKhachHang" Type="BaoHanh" />
       <Association Name="KhachHang_DonHang" Member="DonHangs" ThisKey="idKhachHang" OtherKey="idKhachHang" Type="DonHang" />
       <Association Name="KhachHang_LienHe" Member="LienHes" ThisKey="idKhachHang" OtherKey="idKhachHang" Type="LienHe" />
     </Type>
@@ -79,6 +80,7 @@
       <Column Name="idlienHe" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="noiDungLH" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="idKhachHang" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="hoTenNguoiLH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="KhachHang_LienHe" Member="KhachHang" ThisKey="idKhachHang" OtherKey="idKhachHang" Type="KhachHang" IsForeignKey="true" />
     </Type>
   </Table>
@@ -115,8 +117,8 @@
       <Column Name="chiTietSP" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="idLoai" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="idThuongHieu" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="SanPham_CTDH" Member="CTDHs" ThisKey="idSanPham" OtherKey="idSanPham" Type="CTDH" />
       <Association Name="SanPham_BaoHanh" Member="BaoHanhs" ThisKey="idSanPham" OtherKey="idSanPham" Type="BaoHanh" />
+      <Association Name="SanPham_CTDH" Member="CTDHs" ThisKey="idSanPham" OtherKey="idSanPham" Type="CTDH" />
       <Association Name="SanPham_KhuyenMai" Member="KhuyenMais" ThisKey="idSanPham" OtherKey="idSanPham" Type="KhuyenMai" />
       <Association Name="LoaiSanPham_SanPham" Member="LoaiSanPham" ThisKey="idLoai" OtherKey="idLoai" Type="LoaiSanPham" IsForeignKey="true" />
       <Association Name="ThuongHieu_SanPham" Member="ThuongHieu" ThisKey="idThuongHieu" OtherKey="idThuongHieu" Type="ThuongHieu" IsForeignKey="true" />

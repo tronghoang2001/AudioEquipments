@@ -101,5 +101,50 @@ namespace NguyễnTrọngHoàng_WebThiếtBịÂmThanh.Controllers
             }
             return View();
         }
+        public ActionResult KhachHang()
+        {
+            var khachhang = from kh in db.KhachHangs select kh;
+            return PartialView(khachhang);
+        }
+        //GET
+        public ActionResult DoiMatKhau (int id)
+        {
+            //Kiểm tra đăng nhập
+            if(Session["Taikhoan"] == null || Session["Taikhoan"].ToString()== "")
+            {
+                return RedirectToAction("DangNhap", "NguoiDung");
+            }
+            var khachhang = db.KhachHangs.FirstOrDefault(n => n.idKhachHang == id);
+            return View(khachhang);
+        }
+        //POST
+        [HttpPost]
+        public ActionResult DoiMatKhau(int id, FormCollection collection)
+        {
+            //Tạo 1 biến khachhang với đối tương id = id truyền vào
+            var khachhang = db.KhachHangs.First(n => n.idKhachHang == id);
+            var matkhaumoi = collection["matKhauMoi"];
+            var nhaplaimatkhaumoi = collection["nhapLaiMKMoi"];
+            khachhang.idKhachHang = id;
+            //Nếu người dùng không nhập mk mới và nhập lại mk mới
+            if (string.IsNullOrEmpty(matkhaumoi))
+            {
+                ViewData["Loi1"] = "Chưa nhập mật khẩu mới!";
+            }
+            if (string.IsNullOrEmpty(nhaplaimatkhaumoi))
+            {
+                ViewData["Loi2"] = "Chưa nhập lại mật khẩu mới!";
+            }
+            else
+            {
+                khachhang.matKhauKH = matkhaumoi;
+                //Update trong CSDL
+                UpdateModel(khachhang);
+                db.SubmitChanges();
+                return RedirectToAction("Index", "ThietBiAmThanh");
+            }
+            return this.DoiMatKhau(id);
+        }
+        
     }
 }

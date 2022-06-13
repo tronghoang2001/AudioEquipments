@@ -1,7 +1,6 @@
 ﻿@using NguyễnTrọngHoàng_WebThiếtBịÂmThanh.Models
 @using PagedList.Mvc;
 @model PagedList.PagedList<SanPham>
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
@@ -13,24 +12,23 @@
             <a href="@Url.Action("Details", "ThietBiAmThanh", new { id = sanpham.idSanPham})">
                 <img src="~/Content/images/@sanpham.hinhAnhSP">
                 <h4>@sanpham.tenSanPham</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
             </a>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+            </div>
         </div>
     }
 @* Tạo liên kết các trang  *@
-Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount;
-<div class="MenuTrang" style="color:red">
-
-      @Html.PagedListPager(Model, page => Url.Action("Index", new { Page = page }))
+<h3>Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount</h3>
+<div class="MenuTrang" style="margin-left:900px">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { Page = page }))
 </div>
 <style>
-    .MenuTrang li{
+    .MenuTrang li {
         display: inline;
     }
 </style>

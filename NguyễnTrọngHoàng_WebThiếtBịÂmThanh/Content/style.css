@@ -20,7 +20,6 @@ body {
     flex-wrap: wrap;
     flex-direction: row;
 }
-
 .header .row {
     margin-top: 70px;
 }
@@ -36,6 +35,9 @@ body {
     display: flex;
     align-items: center;
     padding: 20px;
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.1);
+    width: 100%;
+    left: 0;
 }
 
 nav {
@@ -53,14 +55,14 @@ nav {
             margin-right: 20px;
         }
 h3 {
-    color: white;
+    color:black
 }
 a {
     text-decoration: none;
     color: black;
 }
 /*banner*/
-.col-2 {
+    .col-2 {
     flex-basis: 50%;
     min-width: 300px;
 }
@@ -74,6 +76,7 @@ a {
         font-size: 50px;
         line-height: 60px;
         margin: 25px 0;
+        text-shadow: 8px 8px 8px rgb(92 25 131);
     }
 
 .btn {
@@ -91,7 +94,6 @@ a {
     padding-left: 25px;
     padding-right: 25px;
 }
-
 .categories {
     margin: 70px 0;
 }
@@ -109,11 +111,10 @@ a {
         .col-3:hover {
             transform: translateY(-50px);
         }
-/*san pham noi bat*/
+/*SẢN PHẨM MỚI*/
 .title {
     text-align: center;
     margin: 0 auto 80px;
-    position: relative;
     line-height: 60px;
     color: #555;
 }
@@ -124,7 +125,6 @@ a {
         width: 80px;
         height: 5px;
         border-radius: 5px;
-        position: absolute;
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
@@ -207,6 +207,22 @@ small {
     font-size: 12px;
     margin: 12px 0;
     color: #777;
+}
+.comment {
+    text-align: center;
+    padding: 100px;
+    padding-bottom: 150px
+}
+.textComment {
+    padding-bottom: 15px;
+    font-family: sans-serif
+}
+.btnComment {
+    padding: 10px;
+    background-color: orangered;
+    color: white;
+    border-radius: 30px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,.9)
 }
 /*logo thuong hieu*/
 .brands {
@@ -295,17 +311,64 @@ ul {
     text-align: center;
 }
 /*dropdown menu*/
+.dropdown {
+    padding: 1px;
+}
+.dropdown h3 {
+    color: white;
+    background-color: rgba(119, 0, 236, 0.8);
+    width: 110px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 15px;
+    box-shadow: 4px 4px 4px rgba(0,0,0,.9);
+}
+.dropdown p {
+    color: black;
+}
+.dropdown p a {
+    color: black;
+}
+    .dropdown h3:hover {
+        color: black;
+        background-color: rgba(86, 236, 214, 1);
+    }
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: white;
+    background: radial-gradient( circle, rgba(86, 236, 214, 1) 30%, rgba(119, 0, 236, 0.8) 100%);
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 12px 12px;
     border-radius: 15px;
     text-align: left;
-    color: black;   
+    width: 150px;
 }
+
+    .dropdown-content p {
+        box-shadow: 4px 4px 4px rgba(0,0,0,.9);
+        border-radius: 15px;
+        padding: 5px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        background-color: rgba(86, 236, 214, 1);
+    }
+        .dropdown-content p:hover {
+            color: white;
+            background-color: rgba(119, 0, 236, 0.8)
+        }
+        .dropdown-content p a:hover {
+            color: white
+        }
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+/*Scroll*/
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }

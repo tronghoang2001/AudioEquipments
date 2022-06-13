@@ -3,9 +3,10 @@
     ViewBag.Title = "ĐƠN ĐẶT HÀNG";
     Layout = null;
 }
-<div style="background: radial-gradient( circle, rgba(86, 236, 214, 1) 30%, rgba(119, 0, 236, 0.8) 100%); height: 200%">
-    <h2 style="text-align:left; padding-left:265; padding-top:20">THÔNG TIN HÀNG HÓA</h2>
-    <table align="left" border="1" style="background-color: white; margin-left: 50">
+<body style="background: radial-gradient( circle, rgba(86, 236, 214, 1) 30%, rgba(119, 0, 236, 0.8) 100%);">
+    <h2 style="text-align: center; width: 300px; height: 40px; box-shadow: 4px 4px 10px rgba(0,0,0,.9); margin-left: 600px; 
+      margin-top: 50px; padding-top: 13px; background-color: rgba(119, 0, 236, 0.8); color:white; border-radius: 25px">THÔNG TIN HÀNG HÓA</h2>
+    <table align="center" border="1" style="background-color: white; box-shadow: 4px 4px 10px rgba(0,0,0,.9);">
         <tr style="text-align:center; font-weight:bold">
             <td> Mã sản phẩm </td>
             <td> Tên sản phẩm </td>
@@ -41,11 +42,12 @@
         </tr>
     </table>
 
-    <h2 style="text-align:right; padding-right: 250">THÔNG TIN ĐẶT HÀNG</h2>
+    <h2 style="text-align: center; height: 40px; width: 300px; margin-left: 598px; margin-top: 50px; padding-top: 14px; 
+     box-shadow: 4px 4px 10px rgba(0,0,0,.9); background-color: rgba(119, 0, 236, 0.8); color: white; border-radius: 25px ">THÔNG TIN ĐẶT HÀNG</h2>
     @{
         KhachHang kh = (KhachHang)Session["Taikhoan"];
     }
-    <table align="right" style="padding-right: 205">
+    <table align="center" style="background-color: white; border-radius: 15px; box-shadow: 4px 4px 10px rgba(0,0,0,.9); padding: 30px ">
         @using (Html.BeginForm())
         {
             @Html.ValidationSummary(true)
@@ -98,9 +100,10 @@
             <tr style="height:40px">
                 <td></td>
                 <td>
-                    <input type="submit" value="ĐỒNG Ý ĐẶT HÀNG" style="background-color:red; border-radius:15px; height:30px; color:white"/>
+                    <input type="submit" value="ĐỒNG Ý ĐẶT HÀNG" style="background-color: rgba(86, 236, 214, 1); border: none; border-radius: 20px; 
+                    height: 35px; box-shadow: 4px 4px 10px rgba(0,0,0,.9); padding-top: 4px; font-weight:bold "/>
                 </td>
             </tr>
         }
     </table>
-</div>
+</body>

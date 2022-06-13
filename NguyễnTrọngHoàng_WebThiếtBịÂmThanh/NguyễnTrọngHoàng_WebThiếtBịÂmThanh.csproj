@@ -155,9 +155,12 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\desktop1.jpg" />
     <Content Include="Content\images\GioHang.png" />
     <Content Include="Content\images\loaJBL.png" />
     <Content Include="Content\images\loaJBL2.jpg" />
+    <Content Include="Content\images\logoLogin.jpg" />
+    <Content Include="Content\images\logoLogin2.jpg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
@@ -265,11 +268,16 @@
     <Content Include="Views\ThietBiAmThanh\SPTheoThuongHieu.cshtml" />
     <Content Include="Views\ThietBiAmThanh\Details.cshtml" />
     <Content Include="Views\NguoiDung\DangKy.cshtml" />
-    <Content Include="Views\NguoiDung\DangNhap.cshtml" />
     <Content Include="Views\GioHang\GioHang.cshtml" />
     <Content Include="Views\GioHang\GioHangPartial.cshtml" />
     <Content Include="Views\GioHang\DatHang.cshtml" />
     <Content Include="Views\GioHang\XacNhanDonHang.cshtml" />
+    <Content Include="Views\NguoiDung\DoiMatKhau.cshtml" />
+    <Content Include="Views\ThietBiAmThanh\BinhLuan.cshtml" />
+    <Content Include="Views\ThietBiAmThanh\LienHe.cshtml" />
+    <Content Include="Views\ThietBiAmThanh\HienThiBinhLuan.cshtml" />
+    <Content Include="Views\NguoiDung\DangNhap.cshtml" />
+    <Content Include="Views\Shared\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,5 +1,4 @@
 ﻿<!DOCTYPE html>
-
 <html>
 <head>
     <title></title>
@@ -7,83 +6,33 @@
     <link href="~/Content/style.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="~/Content/bootstrap.css" rel="stylesheet"/>
 </head>
 <body>
     <div class="header">
         <div class="container">
-            <!--logo and menu-->
-            <div class="navbar">
+    <!--logo and menu-->
+    @Html.Partial("Menu")
+    <!--end - logo and menu-->
+    <!--banner-->
+    <div class="row">
 
-                <div class="logo">
-                    <img src="~/Content/images/logoTop.png" width="200">
-                </div>
-
-                <nav>
-                    <ul id="MenuItems">
-                        <li>
-                            <div class="dropdown">
-                                <h3>Home</h3>
-                                <div class="dropdown-content">
-
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="dropdown">
-                                <h3>Products</h3>
-                                <div class="dropdown-content">
-                                    @Html.Action("LoaiSanPham", "ThietBiAmThanh")
-                                </div>
-                            </div>
-                        <li>
-                            <div class="dropdown">
-                                <h3>About</h3>
-                                <div class="dropdown-content">
-
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="dropdown">
-                                <h3>Contact</h3>
-                                <div class="dropdown-content">
-
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="dropdown">
-                                <h3>Account</h3>
-                                <div class="dropdown-content">
-
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
-
-                @Html.Action("GioHangPartial", "GioHang")
-            </div>
-            <!--end - logo and menu-->
-            <!--banner-->
-            <div class="row">
-
-                <div class="col-2">
-                    <h1>Life is a song <br>Love is the music! </h1>
-                    <p style="color:white;">
-                        Music does a lot of things for a lot of people. It’s transporting, for sure.
-                        <br>It can take you right back, years back, to the very moment certain things happened in your life.
-                        <br>It’s uplifting, it’s encouraging, it’s strengthening!
-                    </p>
-                </div>
-
-                <div class="col-2">
-                    <img src="~/Content/images/logoDisplay.png">
-                </div>
-
-            </div>
-            <!--end banner-->
+        <div class="col-2">
+            <h1> Life is a song <br>Love is the music! </h1>
+            <p style="color: white; text-shadow: 6px 6px 6px black">
+                Music does a lot of things for a lot of people. It’s transporting, for sure.
+                <br>It can take you right back, years back, to the very moment certain things happened in your life.
+                <br>It’s uplifting, it’s encouraging, it’s strengthening!
+            </p>
         </div>
+
+        <div class="col-2">
+            <img src="~/Content/images/logoDisplay.png">
+        </div>
+
+    </div>
+    <!--end banner-->
+    </div>
     </div>
     <!--end header-->
     <!--logo thuong hieu-->
@@ -97,11 +46,13 @@
     <!--end logo thuong hieu-->
     <!--san pham moi-->
     <div class="small-container">
-        <h2 class="title">Sản phẩm</h2>
-        <div class="row">
-            @RenderBody()
+        <div id="down">
+            <h2 class="title">Sản phẩm</h2>
         </div>
-    </div>
+            <div class="row">
+                    @RenderBody()
+            </div>
+        </div>
     <!--end san pham moi-->
     <!--quang cao san pham moi-->
     <div class="offer">
@@ -131,74 +82,14 @@
     <!--nhan xet cua khac hang-->
     <div class="testimonial">
         <div class="small-container">
-            <div class="row">
-
-                <div class="col-3">
-
-                    <i class="fa fa-quote-left"></i>
-
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti consequuntur eveniet
-                        beatae aperiam atque? Voluptate quae nihil numquam expedita nisi.
-                    </p>
-
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-
-                    <img src="~/Content/images/user-1.png">
-
-                    <h3>Lucy Bemana</h3>
-                </div>
-                <div class="col-3">
-
-                    <i class="fa fa-quote-left"></i>
-
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti consequuntur eveniet
-                        beatae aperiam atque? Voluptate quae nihil numquam expedita nisi.
-                    </p>
-
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-
-                    <img src="~/Content/images/user-2.png">
-
-                    <h3>Brian Stacy</h3>
-                </div>
-                <div class="col-3">
-
-                    <i class="fa fa-quote-left"></i>
-
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti consequuntur eveniet
-                        beatae aperiam atque? Voluptate quae nihil numquam expedita nisi.
-                    </p>
-
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-
-                    <img src="~/Content/images/user-3.png">
-
-                    <h3>Betty Jane</h3>
-                </div>
-
+            <div>
+                @Html.Action("HienThiBinhLuan", "ThietBiAmThanh")
             </div>
         </div>
+    </div>
+    <div class="comment">
+        <h3 class="textComment">"Góp ý của bạn là sự phát triển của chúng tôi!"</h3>
+        >>>  <a href="@Url.Action("BinhLuan", "ThietBiAmThanh")" class="btnComment">Bình Luận</a>  <<<
     </div>
     <!--end nhan xet cua khach hang-->
     <!--footer-->
