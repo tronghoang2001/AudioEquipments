@@ -1,0 +1,89 @@
+﻿@using WebsiteBanThietBiAmThanh.Models
+@model List<GioHang>
+@{
+    ViewBag.Title = "GioHang";
+    Layout = null;
+}
+
+@Html.Partial("Menu")
+<body style="margin-top:100px">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="~/Content/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/dist/mdb5/standard/core.min.css">
+    <link rel="stylesheet" id="roboto-subset.css-css" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/mdb5/fonts/roboto-subset.css?ver=3.9.0-update.5" type="text/css" media="all">
+    <section class="pt-5 pb-5" style="font-family:sans-serif">
+        <div class="container">
+            <div class="row w-100">
+                <div class="col-lg-12 col-md-12 col-12">
+                    <h3 class="display-5 mb-2 text-center">Giỏ Hàng</h3>
+                    <p class="mb-5 text-center">
+                        <i class="text-info font-weight-bold">@ViewBag.Tongsoluong</i> sản phẩm trong giỏ hàng
+                    </p>
+                    <table id="shoppingCart" class="table table-condensed table-responsive">
+                        <thead>
+                            <tr>
+                                <th style="width:55%">Sản phẩm</th>
+                                <th style="width:17%">Giá</th>
+                                <th style="width:10%">Số lượng</th>
+                                <th style="width:16%">Thành tiền</th>
+                                <th style="width:0%">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td data-th="Product">
+                                        <div class="row">
+                                            <div class="col-md-3 text-left">
+                                                <img src="~/Content/images/@item.sHinhAnhSP" alt="" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
+                                            </div>
+                                            <div class="col-md-9 text-left mt-sm-2">
+                                                <h4>@item.sTenSanPham</h4>
+                                                <p class="font-weight-light">Thương hiệu</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { @iMaSP = item.iIdSanPham }))
+                                    {
+                                        <td data-th="Price">@String.Format("{0:0,0}", item.iDonGia) VNĐ</td>
+                                        <td data-th="Quantity">
+                                            <input type="number" min="1" name="txtSoLuong" value="@item.iSoLuong" class="form-control form-control-lg text-center">
+                                        </td>
+                                        <td data-th="Price">@String.Format("{0:0,0}", item.iThanhTien) VNĐ</td>
+                                        <td>
+                                        <button style="width: 60px; height: 30px; border: none; background-color: white; box-shadow: 0 0 5px 0px #888888; border-radius:5px"><i class="fas fa-sync"></i></button>
+                                        <button style="width: 60px; height: 30px; border: none; background-color: white; box-shadow: 0 0 5px 0px #888888; margin-top: 10px; border-radius: 5px ">@Html.ActionLink("Xóa", "XoaGioHang", new { @iMaSP = item.iIdSanPham })</button>
+                                        </td>
+                                        <td><a class="btn" href="@Url.Action("Details", "ThietBiAmThanh", new { id = item.iIdSanPham})">Chi tiết</a></td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <div class="float-right text-right">
+                        <h4>Thành tiền:</h4>
+                        <h1>@String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 d-flex align-items-center">
+                <div class="col-sm-6 order-md-2 text-right">
+                    <a class="btn" style="width: fit-content; border: none; background-color: white; box-shadow: 0 0 5px 0px #888888; border-radius:5px" href="@Url.Action("XoaTatCaGioHang","GioHang")">Xóa giỏ hàng</a>
+                    <a class="btn" style="width: fit-content; border: none; background-color: #1266F1; box-shadow: 0 0 5px 0px #888888; border-radius: 5px; margin-left: 150px; color:white" href="@Url.Action("DatHang", "GioHang")">Đặt hàng <i class="fas fa-arrow-right mr-2"></i></a>
+                </div>
+                <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
+                    <a href="@Url.Action("Index", "ThietBiAmThanh")">
+                        <i class="fas fa-arrow-left mr-2"></i> Tiếp tục mua sắm
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+@Html.Partial("Footer")
+
+

@@ -1,0 +1,54 @@
+﻿@using WebsiteBanThietBiAmThanh.Models
+@{
+    ViewBag.Title = "LienHe";
+    Layout = null;
+}
+
+<link rel="stylesheet" href="~/Content/contact.css">
+<link rel="stylesheet" href="~/Content/style.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+@Html.Partial("Menu")
+<div class="row" id="contatti" style="margin-top: 102px; background: radial-gradient( circle, rgba(86, 236, 214, 1) 85%, rgba(119, 0, 236, 0.8) 100%); color: white ">
+    <div class="container mt-5" style="background: rgba(119, 0, 236, 0.8)">
+        @{
+            KhachHang kh = (KhachHang)Session["Taikhoan"];
+        }
+        <div class="row" style="height:800px;">
+            <div class="col-md-6 maps">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.2892981110576!2d106.6484594!3d10.865586899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752bd3ad7411cb%3A0xd88290498e0fafe9!2zQuG6ok8gTkfhu4xDIEFVRElP!5e0!3m2!1svi!2s!4v1655696954273!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="col-md-6">
+                <h2>HỘP THƯ LIÊN HỆ</h2>
+                    <div>
+                        @using (Html.BeginForm())
+                        {
+                            @Html.ValidationSummary(true)
+                            
+                            <p>Tên khách hàng: @kh.hoTenKH</p>
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <textarea class="form-control" id="noiDungLH" name="noiDungLH" type="text" value="" placeholder="Nội dung liên hệ" rows="3" required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <button type="submit" style="border: none; width: 100px; height: 35px; border-radius: 5px; background: rgba(86, 236, 214, 1); color:black">Gửi</button>
+                            </div>
+                        }
+                        </div>
+                <div class="text-white">
+                    <h2 class="text-uppercase mt-4 font-weight-bold">Thông tin liên hệ</h2>
+
+                    <i class="fas fa-phone mt-3"></i> <a href="tel:+">(+84) 77 488 02 11</a><br>
+                    <i class="fas fa-phone mt-3"></i> <a href="tel:+">(+84) 97 248 29 75</a><br>
+                    <i class="fa fa-envelope mt-3"></i> <a href="">12a9nth@gmail.com</a><br>
+                    <i class="fa fa-envelope mt-3"></i> <a href="">chungtalamot29@gmail.com</a><br>
+                    <i class="fas fa-globe mt-3"></i> 41 Nguyễn Thị Kiểu, Hiệp Thành, Quận 12, Thành phố Hồ Chí Minh, Việt Nam<br>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+@Html.Partial("Footer")

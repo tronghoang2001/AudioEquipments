@@ -1,7 +1,0 @@
-﻿@model IEnumerable<NguyễnTrọngHoàng_WebThiếtBịÂmThanh.Models.LoaiSanPham>
-@foreach (var item in Model)
-{
-<a href="@Url.Action("SPTheoLoai", "ThietBiAmThanh", new { id = item.idLoai})">
-    <p>@item.tenLoai</p>
-</a>
-}

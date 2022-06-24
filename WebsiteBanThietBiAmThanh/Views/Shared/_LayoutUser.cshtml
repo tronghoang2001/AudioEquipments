@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" id="roboto-subset.css-css" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/mdb5/fonts/roboto-subset.css?ver=3.9.0-update.5" type="text/css" media="all">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <!--logo and menu-->
+            @Html.Partial("Menu")
+            <!--end - logo and menu-->
+            <!--banner-->
+            <div class="row" style="padding-top:100px">
+
+                <div class="col-2">
+                    <h1> Life is a song <br>Love is the music! </h1>
+                    <p style="color: white; text-shadow: 2px 2px 2px black">
+                        Music does a lot of things for a lot of people. It’s transporting, for sure.
+                        <br>It can take you right back, years back, to the very moment certain things happened in your life.
+                        <br>It’s uplifting, it’s encouraging, it’s strengthening!
+                    </p>
+                    <audio data-v-f930cdfa="" controls="controls" loop="loop" preload="none" src="~/Content/audio/unstoppableSia.mp3" />
+                </div>
+
+                <div class="col-2">
+                    <img src="~/Content/images/logoDisplay.png">
+                </div>
+            </div>
+            <!--end banner-->
+        </div>
+    </div>
+    <!--end header-->
+    <!--loai san pham-->
+    <div class="small-container">
+        <div class="categories">
+            <div class="row">
+                <div class="col-3">
+                    <img src="~/Content/images/JBL.png">
+                </div>
+                <div class="col-3">
+                    <img src="~/Content/images/taiNgheSamsung2.jpg">
+                </div>
+                <div class="col-3">
+                    <img src="~/Content/images/taiNgheSony3.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end loai san pham-->
+    <!--san pham moi-->
+    <div class="small-container">
+        <div id="down">
+            <h2 class="title">Sản phẩm mới</h2>
+        </div>
+        <div class="row">
+            @RenderBody()
+        </div>
+    </div>
+    <!--end san pham moi-->
+    <!--logo thuong hieu-->
+    @Html.Partial("brands")
+    <!--end logo thuong hieu-->
+    <!--quang cao san pham moi-->
+    <div class="offer">
+        <div class="small-container">
+            <div class="row">
+
+                <div class="col-2">
+                    <img src="~/Content/images/loaSony.jpg" class="offer-img">
+                </div>
+
+                <div class="col-2">
+
+                    <p>Only Available in This Store</p>
+
+                    <h1>Sony SRS-XP700 X-Series</h1>
+
+                    <small style="text-shadow: 2px 2px 2px black">
+                        Pump up the party with the dynamic sound of the SRS-XP700 Portable Wireless Speaker.
+                        Sony’s unique X-Balanced Speaker units power MEGA BASS and multi-directional sound that sounds incredible from anywhere,
+                        even from behind the speaker. Keep the good times going all day and night with up to 25 hours of battery life plus USB-C quick charging.
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end quang cao san pham moi-->
+    <!--nhan xet cua khac hang-->
+    <div class="testimonial">
+        <div class="small-container">
+            <div>
+                @Html.Action("HienThiBinhLuan", "ThietBiAmThanh")
+            </div>
+        </div>
+    </div>
+    <div class="comment">
+        <h3 class="textComment">"Góp ý của bạn là sự phát triển của chúng tôi!"</h3>
+        >>>  <a href="@Url.Action("BinhLuan", "ThietBiAmThanh")" class="btnComment">Bình Luận</a>  <<<
+    </div>
+    <!--end nhan xet cua khach hang-->
+    <!--footer-->
+    @Html.Partial("Footer")
+    <!--end footer-->
+</body>
+</html>

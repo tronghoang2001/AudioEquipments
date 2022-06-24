@@ -1,0 +1,9 @@
+﻿@model IEnumerable<WebsiteBanThietBiAmThanh.Models.ThuongHieu>
+@foreach (var item in Model)
+{
+<a href="@Url.Action("SPTheoThuongHieu", "ThietBiAmThanh", new { id = item.idThuongHieu})">
+    <div class="col-5">
+        <img src="~/Content/images/@item.hinhAnhTH">
+    </div>
+</a>           
+}

@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    Layout = null;
+}
+<link href="~/Content/details.css" rel="stylesheet" />
+<link href="~/Content/style.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+@Html.Partial("Menu")
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="container-fliud">
+                <div class="wrapper row" >
+                    <div class="preview col-md-6">
+
+                        <div class="preview-pic tab-content">
+                            <div class="tab-pane active" id="pic-1"><img src="~/Content/images/@Model.hinhAnhSP" /></div>
+                        </div>
+
+                    </div>
+                    <div class="details col-md-6">
+                        <h3 class="product-title">Thông Tin Sản Phẩm</h3>
+                        <div class="rating">
+                            <div class="stars">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                            </div>
+                        </div>
+                        <h4 class="smallTitle">Tên sản phẩm: <span>@Model.tenSanPham</span></h4>
+                        <h4 class="smallTitle">Giá: <span>@String.Format("{0:0,0}", Model.giaSanPham) VNĐ</span></h4>
+                        <p class="product-description">@Model.chiTietSP</p>
+                        <div class="action">
+                            <a class="add-to-cart" type="button" href="@Url.Action("ThemGioHang", "GioHang", new { @iIDSanPham = @Model.idSanPham, @strURL=Request.Url.ToString() })"
+                               style="color:black">ĐẶT MUA</a>
+                            <a class="add-to-cart" type="button" href="@Url.Action("Index","ThietBiAmThanh")">Xem thêm sản phẩm...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+@Html.Partial("brands")
+@Html.Partial("Footer")

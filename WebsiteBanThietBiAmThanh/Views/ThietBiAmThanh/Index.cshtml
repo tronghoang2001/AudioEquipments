@@ -1,0 +1,34 @@
+﻿@using WebsiteBanThietBiAmThanh.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<SanPham>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+    @foreach (var sanpham in Model)
+    {
+        <div class="col-4">
+            <a href="@Url.Action("Details", "ThietBiAmThanh", new { id = sanpham.idSanPham})">
+                <img src="~/Content/images/@sanpham.hinhAnhSP">
+                <h4>@sanpham.tenSanPham</h4>
+            </a>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+            </div>
+        </div>
+    }
+@* Tạo liên kết các trang  *@
+<div class="MenuTrang" style="display: block; margin-left: auto; margin-right: auto;">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { Page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
+

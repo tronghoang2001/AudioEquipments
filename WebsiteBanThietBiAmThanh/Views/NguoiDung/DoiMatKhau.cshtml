@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "DoiMatKhau";
+    Layout = null;
+}
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/dist/mdb5/standard/core.min.css">
+<link rel="stylesheet" id="roboto-subset.css-css" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/mdb5/fonts/roboto-subset.css?ver=3.9.0-update.5" type="text/css" media="all">
+<div class="vh-100 bg-image"
+         style="background: radial-gradient( circle, rgba(86, 236, 214, 1) 55%, rgba(119, 0, 236, 0.8) 100%)">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                    <div class="card" style="border-radius: 15px; color:black">
+                        <div class="card-body p-5">
+                            <h2 class="text-uppercase text-center mb-5" style="font-family:sans-serif"><a href="@Url.Action("Index","ThietBiAmThanh")"><img src="~/Content/images/logoTop.png" style="width:150px" /></a>ĐỔI MẬT KHẨU</h2>
+                            @using (Html.BeginForm())
+                            {
+                                @Html.ValidationSummary(true)
+                                <div class="form-outline mb-4">
+                                    <label style="margin-left:11px">Tên đăng nhập: @Model.taiKhoanKH</label>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input id="matKhauMoi" name="matKhauMoi" type="password" value="" class="form-control form-control-lg" />
+                                    @ViewData["Loi1"]
+                                    <label class="form-label" for="form3Example3cg">Mật khẩu mới</label>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input id="nhapLaiMKMoi" name="nhapLaiMKMoi" type="password" class="form-control form-control-lg" />
+                                    @ViewData["Loi2"]
+                                    <label class="form-label" for="form3Example4cg">Xác nhận mật khẩu mới</label>
+                                </div>
+
+                                <div class="d-flex justify-content-center">
+                                    <input type="submit" value="Đổi mật khẩu" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                                           style="background-color: rgba(86, 236, 214, 1); font-family:sans-serif" />
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MDB -->
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.js"></script>

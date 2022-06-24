@@ -1,0 +1,68 @@
+﻿@model WebsiteBanThietBiAmThanh.Models.SanPham
+
+@{
+    ViewBag.Title = "Chitietsanpham";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>CHI TIẾT SẢN PHẨM</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Tên Sản Phẩm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenSanPham)
+        </dd>
+
+        <dt>
+          Giá bán
+        </dt>
+
+        <dd>
+          @String.Format("{0:0,0}",Model.giaSanPham) VNĐ
+        </dd>
+
+        <dt>
+            Ảnh sản phẩm
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/Content/images/"+ Model.hinhAnhSP)"width="400px" />
+        </dd>
+
+        <dt>
+           Mô tả
+        </dt>
+
+        <dd>
+            <dd style="width:600px;text-align:justify">
+            @Html.DisplayFor(model => model.chiTietSP)
+        </dd>
+
+        <dt>
+            Loại sản phẩm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiSanPham.tenLoai)
+        </dd>
+
+        <dt>
+            Loại thương hiệu
+        </dt>
+
+        <dd>
+            <img style="width:70px;height:50px" src="@Url.Content("~/Content/images/"+ Model.ThuongHieu.hinhAnhTH)" />
+            @*@Html.DisplayFor(model => model.ThuongHieu.hinhAnhTH)*@
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idSanPham }) |
+    @Html.ActionLink("Back to List", "Sanpham")
+</p>
