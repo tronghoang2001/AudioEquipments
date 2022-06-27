@@ -1,0 +1,17 @@
+﻿body {
+    background: radial-gradient( circle, rgba(86, 236, 214, 1) 30%, rgba(119, 0, 236, 0.8) 100%);
+}
+    body h2 {
+        padding-left: 30px;
+        padding-top: 30px;
+    }
+    body button {
+        margin-left: 50px;
+        padding-bottom: 10px;
+        background-color: rgba(86, 236, 214, 1);
+        width: 135px;
+        padding-top: 10px;
+        border-radius: 15px;
+        box-shadow: 4px 4px 10px rgba(0,0,0,.9);
+        text-decoration: none;
+    }

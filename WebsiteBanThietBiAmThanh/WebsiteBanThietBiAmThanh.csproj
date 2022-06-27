@@ -161,9 +161,14 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\contact.css" />
+    <Content Include="Content\DangKy.css" />
+    <Content Include="Content\DangNhap.css" />
+    <Content Include="Content\DatHang.css" />
     <Content Include="Content\details.css" />
+    <Content Include="Content\DoiMatKhau.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\comment.css" />
+    <Content Include="Content\GioHang.css" />
     <Content Include="Content\images\bgBody.jpg" />
     <Content Include="Content\images\GioHang.png" />
     <Content Include="Content\images\loaJBL.png" />
@@ -180,6 +185,7 @@
     <Content Include="Content\responsive.css" />
     <Content Include="Content\StyleAd.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\XacNhanDonHang.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

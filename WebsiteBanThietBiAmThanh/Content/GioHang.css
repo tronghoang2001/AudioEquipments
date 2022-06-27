@@ -1,0 +1,34 @@
+﻿body .container {
+    margin-top: 100px
+}
+#product {
+    width: 55%
+}
+#price {
+    width: 17%
+}
+#quantity {
+    width: 10%
+}
+#total {
+    width: 16%
+}
+tbody tr td button {
+    width: 60px; height: 30px; border: none; background-color: white; box-shadow: 0 0 5px 0px #888888; margin-top: 10px; border-radius: 5px 
+}
+tbody tr td .btn {
+    margin-top: 9px
+}
+.row .col-sm-6 .btn {
+    width: fit-content;
+    border: none;
+    background-color: white;
+    box-shadow: 0 0 5px 0px #888888;
+    border-radius: 5px
+}
+    .row .col-sm-6 #checkout {
+        background-color: #1266F1;
+        margin-left: 150px;
+        color: white
+    }
+    

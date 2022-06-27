@@ -5,15 +5,14 @@
     Layout = null;
 }
 
+<link rel="stylesheet" href="~/Content/GioHang.css"/>
+<link rel="stylesheet" href="~/Content/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/dist/mdb5/standard/core.min.css">
+<link rel="stylesheet" id="roboto-subset.css-css" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/mdb5/fonts/roboto-subset.css?ver=3.9.0-update.5" type="text/css" media="all">
+
 @Html.Partial("Menu")
-<body style="margin-top:100px">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link rel="stylesheet" href="~/Content/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/dist/mdb5/standard/core.min.css">
-    <link rel="stylesheet" id="roboto-subset.css-css" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/mdb5/fonts/roboto-subset.css?ver=3.9.0-update.5" type="text/css" media="all">
+<body>
     <section class="pt-5 pb-5" style="font-family:sans-serif">
         <div class="container">
             <div class="row w-100">
@@ -25,11 +24,11 @@
                     <table id="shoppingCart" class="table table-condensed table-responsive">
                         <thead>
                             <tr>
-                                <th style="width:55%">Sản phẩm</th>
-                                <th style="width:17%">Giá</th>
-                                <th style="width:10%">Số lượng</th>
-                                <th style="width:16%">Thành tiền</th>
-                                <th style="width:0%">Thao tác</th>
+                                <th id="product">Sản phẩm</th>
+                                <th id="price">Giá</th>
+                                <th id="quantity">Số lượng</th>
+                                <th id="total">Thành tiền</th>
+                                <th>Thao tác</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,8 +54,8 @@
                                         </td>
                                         <td data-th="Price">@String.Format("{0:0,0}", item.iThanhTien) VNĐ</td>
                                         <td>
-                                        <button style="width: 60px; height: 30px; border: none; background-color: white; box-shadow: 0 0 5px 0px #888888; border-radius:5px"><i class="fas fa-sync"></i></button>
-                                        <button style="width: 60px; height: 30px; border: none; background-color: white; box-shadow: 0 0 5px 0px #888888; margin-top: 10px; border-radius: 5px ">@Html.ActionLink("Xóa", "XoaGioHang", new { @iMaSP = item.iIdSanPham })</button>
+                                            <button><i class="fas fa-sync"></i></button>
+                                            <button>@Html.ActionLink("Xóa", "XoaGioHang", new { @iMaSP = item.iIdSanPham })</button>
                                         </td>
                                         <td><a class="btn" href="@Url.Action("Details", "ThietBiAmThanh", new { id = item.iIdSanPham})">Chi tiết</a></td>
                                     }
@@ -72,8 +71,8 @@
             </div>
             <div class="row mt-4 d-flex align-items-center">
                 <div class="col-sm-6 order-md-2 text-right">
-                    <a class="btn" style="width: fit-content; border: none; background-color: white; box-shadow: 0 0 5px 0px #888888; border-radius:5px" href="@Url.Action("XoaTatCaGioHang","GioHang")">Xóa giỏ hàng</a>
-                    <a class="btn" style="width: fit-content; border: none; background-color: #1266F1; box-shadow: 0 0 5px 0px #888888; border-radius: 5px; margin-left: 150px; color:white" href="@Url.Action("DatHang", "GioHang")">Đặt hàng <i class="fas fa-arrow-right mr-2"></i></a>
+                    <a class="btn" href="@Url.Action("XoaTatCaGioHang","GioHang")">Xóa giỏ hàng</a>
+                    <a class="btn" id="checkout" href="@Url.Action("DatHang", "GioHang")">Đặt hàng <i class="fas fa-arrow-right mr-2"></i></a>
                 </div>
                 <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
                     <a href="@Url.Action("Index", "ThietBiAmThanh")">

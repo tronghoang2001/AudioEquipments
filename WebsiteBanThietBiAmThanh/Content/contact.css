@@ -1,10 +1,12 @@
 ﻿#contatti {
-    background-color: #70c3be;
     letter-spacing: 2px;
+    margin-top: 102px;
+    background: radial-gradient( circle, rgba(86, 236, 214, 1) 85%, rgba(119, 0, 236, 0.8) 100%);
+    color: black
 }
 
     #contatti a {
-        color: #fff;
+        color: black;
         text-decoration: none;
     }
 
@@ -14,11 +16,6 @@
     #contatti {
         padding-bottom: 800px;
     }
-
-        #contatti .maps iframe {
-            width: 100%;
-            height: 450px;
-        }
 }
 
 
@@ -61,4 +58,19 @@
 #author a {
     color: #fff;
     text-decoration: none;
+}
+
+#card {
+    background: white;
+}
+#height {
+    height: 800px;
+}
+.col-12 button {
+    border: none;
+    width: 100px;
+    height: 35px;
+    border-radius: 5px;
+    background: rgba(119, 0, 236, 0.8);
+    color: white
 }

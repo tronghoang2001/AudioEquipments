@@ -10,24 +10,19 @@
     KhachHang kh = (KhachHang)Session["Taikhoan"];
 }
 @Html.Partial("Menu")
-<body style="background: radial-gradient( circle, rgba(86, 236, 214, 1) 30%, rgba(119, 0, 236, 0.8) 100%)">
-
     <div class="wrapper">
-        <div class="inner" style="background-color:white">
-            <h1 style="padding-bottom: 30px; color: rgba(119, 0, 236, 0.8) ">Bình Luận</h1>
+        <div class="inner">
+            <h1>Bình Luận</h1>
             @using (Html.BeginForm())
             {
                 @Html.ValidationSummary(true)
-                <div style="padding-bottom: 25px; color: rgba(119, 0, 236, 0.8) ">Tên khách hàng: @kh.hoTenKH</div>
+                <div id="nameCustomer">Tên khách hàng: @kh.hoTenKH</div>
                 <label class="form-group">
-                    <textarea id="noiDungBL" name="noiDungBL" type="text" value="" class="form-control" required=""></textarea>
-                    <span for="" style="color: rgba(119, 0, 236, 0.8)">Bình luận của bạn</span>
+                    <textarea id="noiDungBL" name="noiDungBL" type="text" class="form-control" required=""></textarea>
+                    <span>Bình luận của bạn</span>
                 </label>
-                <button style="color: rgba(119, 0, 236, 0.8); border-color: rgba(119, 0, 236, 0.8) ">
-                    Submit
-                </button>
+                <button>Submit</button>
             }
         </div>
     </div>
-</body>
 @Html.Partial("Footer")

@@ -1,0 +1,10 @@
+﻿body section {
+    background: radial-gradient(circle, rgba(86, 236, 214, 1) 55%, rgba(119, 0, 236, 0.8) 100%)
+}
+.col-12 .card {
+    border-radius: 15px;
+}
+.d-flex input {
+    background-color: rgba(86, 236, 214, 1);
+    font-family: sans-serif
+}

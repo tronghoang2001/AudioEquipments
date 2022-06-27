@@ -1,4 +1,4 @@
-﻿<div class="navbar" style="position: fixed; top: 0; ">
+﻿<div class="navbar" id="fixed">
     <nav>
         <ul id="MenuItems">
             <li>
@@ -10,12 +10,12 @@
             </li>
             <li>
                 <div class="dropdown">
-                    <a href="@Url.Action("Index","ThietBiAmThanh")" style="text-decoration:none"><h3>Home</h3></a>
+                    <a href="@Url.Action("Index","ThietBiAmThanh")" class="decoration"><h3>Home</h3></a>
                 </div>
             </li>
             <li>
                 <div class="dropdown">
-                    <a href="#down" style="text-decoration:none"><h3>Products</h3></a>
+                    <a href="#down" class="decoration"><h3>Products</h3></a>
                     <div class="dropdown-content">
                         @Html.Action("LoaiSanPham", "ThietBiAmThanh")
                     </div>
@@ -27,7 +27,7 @@
             </li>
             <li>
                 <div class="dropdown">
-                    <a style="text-decoration:none" href="@Url.Action("LienHe", "ThietBiAmThanh")"><h3>Contact</h3></a>
+                    <a class="decoration" href="@Url.Action("LienHe", "ThietBiAmThanh")"><h3>Contact</h3></a>
                 </div>
             </li>
             <li>

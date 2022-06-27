@@ -56,6 +56,10 @@ body {
     left: 0;
     z-index: 4;
 }
+#fixed {
+    position: fixed;
+    top: 0;
+}
 .logo {
     padding-right: 550px;
     position: relative
@@ -77,6 +81,9 @@ nav {
         }
 
 /*banner*/
+#banner {
+    padding-top: 100px;
+}
     .col-2 {
     flex-basis: 50%;
     min-width: 300px;
@@ -89,6 +96,10 @@ nav {
             animation-name: opacity;
             -webkit-animation-duration: .3s;
             animation-duration: .3s;
+        }
+        .col-2 p {
+            color: white;
+            text-shadow: 2px 2px 2px black
         }
 @keyframes opacity {
     0% {
@@ -207,6 +218,7 @@ h4 {
 
 small {
     color: #fff;
+    text-shadow: 2px 2px 2px black;
 }
 /*nhan xet cua khach hang*/
 .testimonial {
@@ -361,6 +373,9 @@ ul {
     color: black;
     font-weight: bold;
 }
+    .dropdown .decoration {
+        text-decoration: none
+    }
 .dropdown h3:hover {
     color: white;
 }

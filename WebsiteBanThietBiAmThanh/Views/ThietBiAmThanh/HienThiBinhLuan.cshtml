@@ -1,25 +1,19 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "HienThiBinhLuan";
     Layout = null;
 }
+
 <div class="testimonial">
     <div class="small-container">
         <div class="row">
-
-
             @foreach (var binhluan in Model)
             {
-            <div class="col-3">
-
-                <i class="fa fa-quote-left"></i>
-                <p>
-                    @binhluan.noiDungBL
-                </p>
-                <h3>@binhluan.hoTenNguoiBL</h3>
-            </div>
-                    }
-                
-            </div>
+                <div class="col-3">
+                    <i class="fa fa-quote-left"></i>
+                    <p>@binhluan.noiDungBL</p>
+                    <h3>@binhluan.hoTenNguoiBL</h3>
+                </div>
+            }
         </div>
+    </div>
 </div>

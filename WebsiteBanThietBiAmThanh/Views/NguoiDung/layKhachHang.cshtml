@@ -2,5 +2,6 @@
 @{
     KhachHang kh = (KhachHang)Session["Taikhoan"];
 }
-<a style="text-decoration:none; color:black" href="@Url.Action("DoiMatKhau", "NguoiDung", new { id = kh.idKhachHang })">@Html.Action("DoiMatKhau","NguoiDung", new { id = kh.idKhachHang })</a>
+<a style="text-decoration:none; color:black" href="@Url.Action("DoiMatKhau", "NguoiDung", new { id = kh.idKhachHang })">
+    @Html.Action("DoiMatKhau","NguoiDung", new { id = kh.idKhachHang })</a>
 @*@Html.Action("DoiMatKhau","NguoiDung", new { id = kh.idKhachHang })*@

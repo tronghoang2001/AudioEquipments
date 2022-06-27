@@ -1,0 +1,17 @@
+﻿.vh-100 {
+    background: radial-gradient( circle, rgba(86, 236, 214, 1) 55%, rgba(119, 0, 236, 0.8) 100%)
+}
+    .vh-100 .col-12 .card {
+        border-radius: 15px; 
+        color: black;
+    }
+.card-body h2 {
+    font-family: sans-serif;
+}
+.form-outline #account {
+    margin-left: 11px
+}
+.d-flex input {
+    background-color: rgba(86, 236, 214, 1);
+    font-family: sans-serif
+}
