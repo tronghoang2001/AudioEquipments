@@ -22,10 +22,11 @@
                 <div class="col-2">
                     <h1> Life is a song <br>Love is the music! </h1>
                     <p>
-                        Music does a lot of things for a lot of people. It’s transporting, for sure.
-                        <br>It can take you right back, years back, to the very moment certain things happened in your life.
-                        <br>It’s uplifting, it’s encouraging, it’s strengthening!
+                        Ngôn ngữ của âm nhạc là ngôn ngữ chung của tất cả mọi thế hệ và mọi dân tộc.
+                        <br>Ai cũng hiểu được nó, bởi nó được hiểu bằng trái tim.
+                        <br>– Gioachino Rossini
                     </p>
+                    <br>
                     <audio data-v-f930cdfa="" controls="controls" loop="loop" preload="none" src="~/Content/audio/unstoppableSia.mp3" />
                 </div>
 
@@ -75,22 +76,34 @@
                     <img src="~/Content/images/loaSony.jpg" class="offer-img">
                 </div>
                 <div class="col-2">
-                    <p>Only Available in This Store</p>
+                    <p>Sản phẩm độc quyền tại cửa hàng</p>
                     <h1>Sony SRS-XP700 X-Series</h1>
                     <small>
-                        Pump up the party with the dynamic sound of the SRS-XP700 Portable Wireless Speaker.
-                        Sony’s unique X-Balanced Speaker units power MEGA BASS and multi-directional sound that sounds incredible from anywhere,
-                        even from behind the speaker. Keep the good times going all day and night with up to 25 hours of battery life plus USB-C quick charging.
+                        Loa di động Sony SRS-XP700 được tích hợp viên pin có thời gian sử dụng lên đến 25 giờ, 
+                        cùng khả năng Sạc nhanh cho bạn 3 giờ chơi chỉ với 10 phút sạc, vô cùng ấn tượng. 
+                        Giờ đây sau lần sạc đầy bạn có thể chơi nhạc cả ngày mà không cần lo lắng sẽ phải dừng 
+                        bữa tiệc âm nhạc cua mình bất chợt vì hết pin.
                     </small>
                 </div>
             </div>
         </div>
     </div>
     <!--end quang cao san pham moi-->
+    <!--tin tuc-->
+    <div class="testimonial">
+        <div class="small-container">
+            <h2 class="title">Tin tức về âm nhạc</h2>
+            <div class="row">
+                @Html.Action("HienThiTinTuc", "ThietBiAmThanh")
+            </div>
+        </div>
+    </div>
+    <!--end tin tuc-->
     <!--nhan xet cua khac hang-->
     <div class="testimonial">
         <div class="small-container">
-            <div>
+            <h2 class="title">Bình luận</h2>
+            <div class="row">
                 @Html.Action("HienThiBinhLuan", "ThietBiAmThanh")
             </div>
         </div>

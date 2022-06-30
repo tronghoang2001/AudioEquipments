@@ -10,6 +10,12 @@
     <div id="down">
         <h2 class="title">Sản phẩm</h2>
     </div>
+    <form asp-controller="ThietBiAmThanh" asp-action="SPTheoLoai">
+        <p>
+            Tìm kiếm sản phẩm: <input type="text" name="SearchString" />
+            <input type="submit" value="Tìm kiếm" />
+        </p>
+    </form>
     <div class="row">
         @foreach (var sanpham in Model)
         {

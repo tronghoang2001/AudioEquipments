@@ -7,6 +7,7 @@ using WebsiteBanThietBiAmThanh.Models;
 
 using PagedList;
 using PagedList.Mvc;
+using System.Threading.Tasks;
 
 namespace WebsiteBanThietBiAmThanh.Controllers
 {
@@ -40,14 +41,22 @@ namespace WebsiteBanThietBiAmThanh.Controllers
             var thuonghieu = from th in data.ThuongHieus select th;
             return PartialView(thuonghieu);
         }
-        public ActionResult SPTheoLoai(int id)
+        public ActionResult SPTheoLoai(int id, string searchString)
         {
             var sanpham = from sp in data.SanPhams where sp.idLoai == id select sp;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                sanpham = sanpham.Where(s => s.tenSanPham.Contains(searchString));
+            }
             return View(sanpham);
         }
-        public ActionResult SPTheoThuongHieu(int id)
+        public ActionResult SPTheoThuongHieu(int id, string searchString)
         {
             var sanpham = from sp in data.SanPhams where sp.idThuongHieu == id select sp;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                sanpham = sanpham.Where(s => s.tenSanPham.Contains(searchString));
+            }
             return View(sanpham);
         }
         public ActionResult Details(int id)
@@ -115,6 +124,22 @@ namespace WebsiteBanThietBiAmThanh.Controllers
         {
             var binhluanmoi = DSBinhLuan(3);
             return View(binhluanmoi);
+        }
+
+        public List<TinTuc> DSTinTuc(int count)
+        {
+            return data.TinTucs.OrderByDescending(a => a.idTinTuc).Take(count).ToList();
+        }
+
+        public ActionResult HienThiTinTuc()
+        {
+            var tintucmoi = DSTinTuc(3);
+            return View(tintucmoi);
+        }
+        public ActionResult ChiTietTinTuc(int id)
+        {
+            var tintuc = from tt in data.TinTucs where tt.idTinTuc == id select tt;
+            return View(tintuc.Single());
         }
     }
 }

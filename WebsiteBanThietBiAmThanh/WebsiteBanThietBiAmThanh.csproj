@@ -145,12 +145,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MaHoa.cs" />
     <Compile Include="Models\dbThietBiAmThanh.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dbThietBiAmThanh.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\GioHang.cs" />
+    <Compile Include="Others\ChuyenDoi.cs" />
+    <Compile Include="Others\SoSanh.cs" />
+    <Compile Include="Others\XuLy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +164,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chiTietTinTuc.css" />
     <Content Include="Content\contact.css" />
     <Content Include="Content\DangKy.css" />
     <Content Include="Content\DangNhap.css" />
@@ -170,13 +175,28 @@
     <Content Include="Content\comment.css" />
     <Content Include="Content\GioHang.css" />
     <Content Include="Content\images\bgBody.jpg" />
+    <Content Include="Content\images\Bose.png" />
+    <Content Include="Content\images\dauDiaThan.jpg" />
+    <Content Include="Content\images\G-Dragon.jpg" />
     <Content Include="Content\images\GioHang.png" />
+    <Content Include="Content\images\loaHarman.png" />
     <Content Include="Content\images\loaJBL.png" />
-    <Content Include="Content\images\loaJBL2.jpg" />
+    <Content Include="Content\images\loaJBL2.png" />
+    <Content Include="Content\images\loaKhongday.jpg" />
+    <Content Include="Content\images\loaLG.png" />
     <Content Include="Content\images\loaMarshall2.jpg" />
+    <Content Include="Content\images\loaSamsung.png" />
+    <Content Include="Content\images\loaSony2.png" />
+    <Content Include="Content\images\loaSony3.png" />
     <Content Include="Content\images\logoLogin2.jpg" />
+    <Content Include="Content\images\logoSony.png" />
     <Content Include="Content\images\logoTop.png" />
+    <Content Include="Content\images\MarshallBlack.png" />
+    <Content Include="Content\images\taingheAKG.png" />
+    <Content Include="Content\images\taingheSamsung.png" />
     <Content Include="Content\images\taiNgheSamsung2.jpg" />
+    <Content Include="Content\images\taingheSony.png" />
+    <Content Include="Content\images\taingheSony2.png" />
     <Content Include="Content\images\taiNgheSony3.jpg" />
     <Content Include="Content\material-design-iconic-font.css" />
     <Content Include="Content\material-design-iconic-font.min.css" />
@@ -191,33 +211,22 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\images\app-store.png" />
-    <Content Include="Content\images\Bose.jpg" />
     <Content Include="Content\images\JBL.png" />
     <Content Include="Content\images\loa-di-dong-bluetooth-lg-ph1-didongviet.jpg" />
     <Content Include="Content\images\loaBose.png" />
-    <Content Include="Content\images\loaHarman.jpg" />
-    <Content Include="Content\images\loaLG.jpg" />
     <Content Include="Content\images\loaMarshall.png" />
-    <Content Include="Content\images\loaSamsung.jpg" />
     <Content Include="Content\images\loaSony.jpg" />
-    <Content Include="Content\images\loaSony2.jpg" />
-    <Content Include="Content\images\loaSony3.jpg" />
     <Content Include="Content\images\logoAKG.png" />
     <Content Include="Content\images\logoBose.png" />
     <Content Include="Content\images\logoDisplay.png" />
     <Content Include="Content\images\logoHarman.png" />
     <Content Include="Content\images\logoJBL.png" />
     <Content Include="Content\images\logoSamsung.png" />
-    <Content Include="Content\images\MarshallBlack.jpg" />
     <Content Include="Content\images\MarshallWhite.jpg" />
     <Content Include="Content\images\menu.png" />
     <Content Include="Content\images\play-store.png" />
     <Content Include="Content\images\pngwing.com %283%29.png" />
-    <Content Include="Content\images\taingheAKG.jpg" />
     <Content Include="Content\images\taingheApple.png" />
-    <Content Include="Content\images\taingheSamsung.jpg" />
-    <Content Include="Content\images\taingheSony.jpg" />
-    <Content Include="Content\images\taingheSony2.jpg" />
     <Content Include="Properties\kisspng-brand-logo-font-blue-audio-speakers-5a6b9b443891a5.3628081415170015402317.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -240,66 +249,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="tinymce\js\tinymce\icons\default\icons.min.js" />
-    <Content Include="tinymce\js\tinymce\license.txt" />
-    <Content Include="tinymce\js\tinymce\models\dom\model.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\advlist\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\anchor\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\autolink\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\autoresize\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\autosave\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\charmap\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\codesample\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\code\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\directionality\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\emoticons\js\emojiimages.js" />
-    <Content Include="tinymce\js\tinymce\plugins\emoticons\js\emojiimages.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\emoticons\js\emojis.js" />
-    <Content Include="tinymce\js\tinymce\plugins\emoticons\js\emojis.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\emoticons\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\fullscreen\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\help\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\image\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\importcss\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\insertdatetime\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\link\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\lists\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\media\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\nonbreaking\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\pagebreak\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\preview\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\quickbars\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\save\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\searchreplace\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\table\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\template\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\visualblocks\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\visualchars\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\plugins\wordcount\plugin.min.js" />
-    <Content Include="tinymce\js\tinymce\skins\content\dark\content.min.css" />
-    <Content Include="tinymce\js\tinymce\skins\content\default\content.min.css" />
-    <Content Include="tinymce\js\tinymce\skins\content\document\content.min.css" />
-    <Content Include="tinymce\js\tinymce\skins\content\tinymce-5-dark\content.min.css" />
-    <Content Include="tinymce\js\tinymce\skins\content\tinymce-5\content.min.css" />
-    <Content Include="tinymce\js\tinymce\skins\content\writer\content.min.css" />
-    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\content.inline.min.css" />
-    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\content.min.css" />
-    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\skin.min.css" />
-    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\skin.shadowdom.min.css" />
-    <Content Include="tinymce\js\tinymce\skins\ui\oxide\content.inline.min.css" />
-    <Content Include="tinymce\js\tinymce\skins\ui\oxide\content.min.css" />
-    <Content Include="tinymce\js\tinymce\skins\ui\oxide\skin.min.css" />
-    <Content Include="tinymce\js\tinymce\skins\ui\oxide\skin.shadowdom.min.css" />
-    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5-dark\content.inline.min.css" />
-    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5-dark\content.min.css" />
-    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5-dark\skin.min.css" />
-    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5-dark\skin.shadowdom.min.css" />
-    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5\content.inline.min.css" />
-    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5\content.min.css" />
-    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5\skin.min.css" />
-    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5\skin.shadowdom.min.css" />
-    <Content Include="tinymce\js\tinymce\themes\silver\theme.min.js" />
-    <Content Include="tinymce\js\tinymce\tinymce.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -325,7 +274,7 @@
     <Content Include="Views\GioHang\GioHang.cshtml" />
     <Content Include="Views\GioHang\GioHangPartial.cshtml" />
     <Content Include="Views\GioHang\DatHang.cshtml" />
-    <Content Include="Views\GioHang\XacNhanDonHang.cshtml" />
+    <Content Include="Views\GioHang\XacNhanThanhToan.cshtml" />
     <Content Include="Views\NguoiDung\DoiMatKhau.cshtml" />
     <Content Include="Views\ThietBiAmThanh\BinhLuan.cshtml" />
     <Content Include="Views\ThietBiAmThanh\LienHe.cshtml" />
@@ -335,8 +284,6 @@
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Shared\brands.cshtml" />
     <Content Include="Views\NguoiDung\layKhachHang.cshtml" />
-    <Content Include="tinymce\CHANGELOG.md" />
-    <Content Include="tinymce\js\tinymce\langs\README.md" />
     <Content Include="Views\Admin\Chitietsanpham.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
@@ -346,6 +293,20 @@
     <Content Include="Views\Admin\Xoasanpham.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Shared\sideBarMenu.cshtml" />
+    <Content Include="Views\ThietBiAmThanh\TimSanPham.cshtml" />
+    <Content Include="Views\GioHang\XacNhanDonHang.cshtml" />
+    <Content Include="Views\ThietBiAmThanh\HienThiTinTuc.cshtml" />
+    <Content Include="Views\Admin\TinTuc.cshtml" />
+    <Content Include="Views\Admin\ThemTinTuc.cshtml" />
+    <Content Include="Views\Admin\ChiTietTinTuc.cshtml" />
+    <Content Include="Views\Admin\XoaTinTuc.cshtml" />
+    <Content Include="Views\Admin\SuaTinTuc.cshtml" />
+    <Content Include="Views\ThietBiAmThanh\ChiTietTinTuc.cshtml" />
+    <Content Include="Views\Admin\SuaLoaiSanPham.cshtml" />
+    <Content Include="Views\Admin\ThemMoiLoaiSanPham.cshtml" />
+    <Content Include="Views\Admin\ThemMoiThuongHieuSanPham.cshtml" />
+    <Content Include="Views\Admin\ThuongHieuSanPham.cshtml" />
+    <Content Include="Views\Admin\XoaLoaiSanPham.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -367,9 +328,6 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="tinymce\js\tinymce\tinymce.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

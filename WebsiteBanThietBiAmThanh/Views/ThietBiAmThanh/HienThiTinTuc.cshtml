@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "HienThiTinTuc";
+    Layout = null;
+}
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+
+@foreach (var tintuc in Model)
+{
+    String truncate = Truncate(tintuc.noiDungTin, 128).ToString();
+    <a href="@Url.Action("ChiTietTinTuc", "ThietBiAmThanh", new { id = tintuc.idTinTuc})" class="decoration">
+        <div class="col-3">
+            <img src="~/Content/images/@tintuc.anhBiaTin" />
+            <h3>@tintuc.tieuDeTin</h3>
+            <p>@Html.Raw(HttpUtility.HtmlDecode(truncate))</p>
+        </div>
+    </a>
+}
+

@@ -27,7 +27,7 @@ namespace WebsiteBanThietBiAmThanh.Controllers
             //Gán các giá trị người dùng nhập liệu cho các biến
             var hoten = collection["hoTenKH"];
             var tendn = collection["taiKhoanKH"];
-            var matkhau = collection["matKhauKH"];
+            var matkhau = MaHoa.GetMD5(collection["matKhauKH"]);
             var nhaplaimatkhau = collection["nhapLaiMK"];
             var sodienthoai = collection["soDienThoaiKH"];
             var diachi = collection["diaChiKH"];
@@ -59,7 +59,7 @@ namespace WebsiteBanThietBiAmThanh.Controllers
             {
                 kh.hoTenKH = hoten;
                 kh.taiKhoanKH = tendn;
-                kh.matKhauKH = matkhau;
+                kh.matKhauKH = MaHoa.GetMD5(matkhau);
                 kh.soDienThoaiKH = sodienthoai;
                 kh.diaChiKH = diachi;
                 db.KhachHangs.InsertOnSubmit(kh);
@@ -78,7 +78,7 @@ namespace WebsiteBanThietBiAmThanh.Controllers
         {
             //Gán giá trị người dùng nhập liệu cho các biến
             var tendn = collection["taiKhoanKH"];
-            var matkhau = collection["matKhauKH"];
+            var matkhau = MaHoa.GetMD5(collection["matKhauKH"]);
             if (String.IsNullOrEmpty(tendn))
             {
                 ViewData["Loi1"] = "Bạn phải nhập tên đăng nhập";
@@ -90,7 +90,7 @@ namespace WebsiteBanThietBiAmThanh.Controllers
             else
             {
                 //Gán giá trị cho đối tượng được tạo mới (kh)
-                KhachHang kh = db.KhachHangs.SingleOrDefault(n => n.taiKhoanKH == tendn && n.matKhauKH == matkhau);
+                KhachHang kh = db.KhachHangs.SingleOrDefault(n => n.taiKhoanKH == tendn && n.matKhauKH == MaHoa.GetMD5(matkhau));
                 if (kh != null)
                 {
                     ViewBag.ThongBao = "Đăng nhập thành công!";
@@ -107,10 +107,10 @@ namespace WebsiteBanThietBiAmThanh.Controllers
             return PartialView(khachhang);
         }
         //GET
-        public ActionResult DoiMatKhau (int id)
+        public ActionResult DoiMatKhau(int id)
         {
             //Kiểm tra đăng nhập
-            if(Session["Taikhoan"] == null || Session["Taikhoan"].ToString()== "")
+            if (Session["Taikhoan"] == null || Session["Taikhoan"].ToString() == "")
             {
                 return RedirectToAction("DangNhap", "NguoiDung");
             }
@@ -154,6 +154,5 @@ namespace WebsiteBanThietBiAmThanh.Controllers
             }
             return PartialView();
         }
-        
     }
 }

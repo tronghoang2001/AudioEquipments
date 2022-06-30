@@ -1,0 +1,56 @@
+﻿@model WebsiteBanThietBiAmThanh.Models.TinTuc
+
+@{
+    ViewBag.Title = "XoaTinTuc";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>XÁC NHẬN XÓA TIN TỨC</h2>
+
+<h3>Bạn quyết định xóa tin tức này?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tiêu đề tin:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tieuDeTin)
+        </dd>
+
+        <dt>
+            Nội dung tin:
+        </dt>
+
+        <dd>
+            @Html.Raw(HttpUtility.HtmlDecode(Model.noiDungTin))
+        </dd>
+
+        <dt>
+            Ảnh bìa tin:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.anhBiaTin)
+        </dd>
+
+        <dt>
+            Ngày soạn:
+        </dt>
+
+        <dd>
+            @String.Format("{0:dd/MM/yyyy}", Model.NgaySoan)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete"/> |
+            @Html.ActionLink("Về trang quản lý tin tức", "TinTuc")
+        </div>
+    }
+</div>

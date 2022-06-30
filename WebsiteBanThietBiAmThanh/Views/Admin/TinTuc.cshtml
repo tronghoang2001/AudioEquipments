@@ -1,0 +1,79 @@
+﻿@using WebsiteBanThietBiAmThanh.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<WebsiteBanThietBiAmThanh.Models.TinTuc>
+
+@helper Truncate(string input, int length) { 
+        if(input.Length < length)
+        {
+            @input
+        }
+        else
+        {
+            @input.Substring(0,length)<text>...</text>
+        }
+    }
+
+@{
+    ViewBag.Title = "TinTuc";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Tin tức</h2>
+
+<p>
+    @Html.ActionLink("THÊM MỚI TIN TỨC", "ThemTinTuc")
+</p>
+<table class="table">
+    <tr>
+        <th width="200">
+            Tiêu đề tin
+        </th>
+        <th>
+            Nội dung tin
+        </th>
+        <th>
+            Ảnh bìa tin
+        </th>
+        <th>
+            Ngày soạn
+        </th>
+        <th>
+            Thao tác
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        String truncate = Truncate(item.noiDungTin, 128).ToString();
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tieuDeTin)
+            </td>
+            <td>
+                @Html.Raw(HttpUtility.HtmlDecode(truncate))
+            </td>
+            <td>
+                <img src="~/Content/images/@item.anhBiaTin" width="150"/>
+            </td>
+            <td>
+                @String.Format("{0:dd/MM/yyyy}", item.NgaySoan)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "SuaTinTuc", new { id = item.idTinTuc }) |
+                @Html.ActionLink("Chi tiết", "ChiTietTinTuc", new { id = item.idTinTuc }) |
+                @Html.ActionLink("Xóa", "XoaTinTuc", new { id = item.idTinTuc })
+            </td>
+        </tr>
+    }
+</table>
+@*Tạo liên kết trang*@
+Trang@(Model.PageCount<Model.PageNumber ? 0: Model.PageNumber)/@Model.PageCount;
+<div class="MenuTrang" style="display: block; margin-left: auto; margin-right: auto;">
+    @Html.PagedListPager(Model, page => Url.Action("TinTuc", new { Page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>

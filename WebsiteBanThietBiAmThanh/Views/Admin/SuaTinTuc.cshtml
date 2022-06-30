@@ -1,0 +1,69 @@
+﻿@model WebsiteBanThietBiAmThanh.Models.TinTuc
+
+@{
+    ViewBag.Title = "SuaTinTuc";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>CHỈNH SỬA TIN TỨC</h2>
+
+@using (Html.BeginForm("SuaTinTuc", "Admin", FormMethod.Post, new { @enctype="multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.idTinTuc)
+
+        <div class="form-group">
+            <label>Mã tin tức:</label>
+            <div class="col-md-10">
+                <div style="font:18px; padding: 5px 0 0 5px"> @Model.idTinTuc </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="tieuDeTin">Tiêu đề tin</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tieuDeTin, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.tieuDeTin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="noiDungTin">Nội dung tin</label>
+            <div class="col-md-10">
+                <textarea name="noiDungTin">Nội dung tin tức</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="anhBiaTin">Ảnh bìa tin</label>
+            <div class="col-md-10">Chọn ảnh mới
+                <input type="file" name="fileupload"/>
+                <img src="@Url.Content("~/Content/images/" + Model.anhBiaTin)" width="150"/> (Ảnh hiện tại)
+                @*THÔNG BÁO TRÙNG*@
+                @ViewBag.Thongbao
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="NgaySoan">Ngày soạn</label>
+            <div class="col-md-10">
+                <input type="date" name="NgaySoan"/>
+                @Html.ValidationMessageFor(model => model.NgaySoan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

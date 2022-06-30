@@ -9,25 +9,24 @@
 <link rel="stylesheet" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/dist/mdb5/standard/core.min.css">
 <link rel="stylesheet" id="roboto-subset.css-css" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/mdb5/fonts/roboto-subset.css?ver=3.9.0-update.5" type="text/css" media="all">
 
-<body class="h-100 h-custom">
+<body class="checkout">
     @Html.Partial("Menu")
         <div class="col">
             <div class="card">
                 <div class="card-body p-4">
                     <div class="row">
                         <div class="col-lg-7">
-                            <h5 class="mb-3">
                                 <a href="@Url.Action("GioHang","GioHang")" class="text-body">
                                     <i class="fas fa-long-arrow-alt-left me-2"></i>Quay về giỏ hàng
                                 </a>
-                            </h5>
+                                <a id="payment" class="btn" href="@Url.Action("ThanhToan","GioHang")">Thanh toán</a>
                             <hr>
                             <div class="d-flex justify-content-between align-items-center mb-4">
                                 <div>
                                     <p class="mb-1">Sản phẩm bạn đã chọn</p>
                                     <p class="mb-1">Số lượng: @ViewBag.Tongsoluong</p>
                                     <p class="mb-1">Thành tiền: @String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ</p>
-                                    
+
                                 </div>
                             </div>
                             @foreach (var item in Model)
@@ -50,7 +49,7 @@
                                                 @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { @iMaSP = item.iIdSanPham }))
                                                 {
                                                     <h5>Số lượng: @item.iSoLuong</h5>
-                                                    <h5>Đơn giá: @String.Format("{0:0,0}", item.iThanhTien) VNĐ</h5>                                                  
+                                                    <h5>Đơn giá: @String.Format("{0:0,0}", item.iThanhTien) VNĐ</h5>
                                                 }
                                             </div>
                                         </div>

@@ -1,0 +1,28 @@
+﻿<link rel="stylesheet" href="~/Content/bootstrap.css" />
+<link rel="stylesheet" href="~/Content/style.css" />
+@Html.Partial("Menu")
+<div class="small-container" style="margin-top:150px">
+    <div id="down">
+        <h2 class="title">Sản phẩm</h2>
+    </div>
+    <div class="row">
+        @foreach (var sanpham in Model)
+        {
+            <div class="col-4">
+                <a href="@Url.Action("Details", "ThietBiAmThanh", new { id = sanpham.idSanPham})">
+                    <img src="~/Content/images/@sanpham.hinhAnhSP">
+                    <h4>@sanpham.tenSanPham</h4>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>
+@Html.Partial("brands")
+@Html.Partial("Footer")

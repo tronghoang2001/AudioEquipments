@@ -1,0 +1,35 @@
+﻿@model IEnumerable<WebsiteBanThietBiAmThanh.Models.ThuongHieu>
+
+@{
+    ViewBag.Title = "ThuongHieuSanPham";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>ThuongHieuSanPham</h2>
+
+<p>
+    @Html.ActionLink("THÊM MỚI THƯƠNG HIỆU SẢN PHẨM ", "ThemMoiThuongHieuSanPham")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.hinhAnhTH)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.hinhAnhTH)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.idThuongHieu }) |
+                @Html.ActionLink("Details", "Details", new { id = item.idThuongHieu }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.idThuongHieu })
+            </td>
+        </tr>
+    }
+
+</table>

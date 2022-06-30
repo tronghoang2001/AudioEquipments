@@ -1,0 +1,50 @@
+﻿@model WebsiteBanThietBiAmThanh.Models.TinTuc
+
+@{
+    ViewBag.Title = "ChiTietTinTuc";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>CHI TIẾT TIN TỨC</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tiêu đề tin:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tieuDeTin)
+        </dd>
+
+        <dt>
+            Nội dung tin:
+        </dt>
+
+        <dd>
+            @Html.Raw(HttpUtility.HtmlDecode(Model.noiDungTin))
+        </dd>
+
+        <dt>
+            Ảnh bìa tin:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.anhBiaTin)
+        </dd>
+
+        <dt>
+            Ngày soạn:
+        </dt>
+
+        <dd>
+            @String.Format("{0:dd/MM/yyyy}", Model.NgaySoan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "SuaTinTuc", new { id = Model.idTinTuc }) |
+    @Html.ActionLink("Về trang quản lý tin tức", "TinTuc")
+</p>

@@ -1,0 +1,71 @@
+﻿body {
+    font-family: 'open sans';
+    overflow-x: hidden;
+}
+
+
+
+.action a:hover {
+    text-decoration: none;
+}
+
+.tab-content {
+    overflow: hidden;
+}
+
+    .tab-content img {
+        width: 850px;
+        -webkit-animation-name: opacity;
+        animation-name: opacity;
+        -webkit-animation-duration: .3s;
+        animation-duration: .3s;
+        border: 4px solid rgba(119, 0, 236, 0.8);
+        border-radius: 15px
+    }
+
+.card {
+    margin-top: 130px;
+}
+    .card img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+.center {
+    margin-left: 150px;
+    margin-right: 150px;
+}
+    .center img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 10px;
+    }
+    .center h1 {
+        text-align: center;
+        font-weight: bold;
+        position: relative;
+        line-height: 60px;
+        text-transform: uppercase;
+    }
+    .center h1::after {
+        content: "";
+        background: radial-gradient( circle, rgba(86, 236, 214, 1) 30%, rgba(119, 0, 236, 0.8) 100%);
+        width: 200px;
+        height: 5px;
+        border-radius: 5px;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+.center p {
+    font-size: 18px;
+}
+#date {
+    font-weight:bold
+}
+
+
+
+

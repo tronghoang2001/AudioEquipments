@@ -61,8 +61,7 @@ body {
     top: 0;
 }
 .logo {
-    padding-right: 550px;
-    position: relative
+    padding-right: 460px;
 }
 nav {
     flex: 1;
@@ -158,16 +157,18 @@ nav {
 .title {
     text-align: center;
     margin: 0 auto 80px;
+    position: relative;
     line-height: 60px;
     color: #555;
 }
 
     .title::after {
         content: "";
-        background: #ff523b;
-        width: 80px;
+        background: radial-gradient( circle, rgba(86, 236, 214, 1) 30%, rgba(119, 0, 236, 0.8) 100%);
+        width: 100px;
         height: 5px;
         border-radius: 5px;
+        position: absolute;
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
@@ -178,9 +179,11 @@ nav {
     padding: 10px;
     min-width: 200px;
     margin-bottom: 50px;
-    transition: transform 0.6s;
 }
-
+    .col-4:hover {
+        background-color: gray;
+        border-radius: 20px;
+    }
     .col-4 img {
         width: 100%;
     }
@@ -192,9 +195,6 @@ nav {
             text-decoration: none;
             color: black;
         }
-    .col-4:hover {
-        transform: translateY(-50px);
-    }
 
 h4 {
     color: black;
@@ -234,9 +234,8 @@ small {
     }
 
         .testimonial .col-3 img {
-            width: 50px;
-            margin-top: 20px;
-            border-radius: 50%;
+            width: 200px;
+            border-radius: 5px;
         }
 
         .testimonial .col-3:hover {
@@ -246,16 +245,18 @@ small {
         .testimonial .col-3 h3 {
             font-weight: 600;
             color: #555;
-            font-size: 16px;
+            font-size: 18px;
         }
-
+.testimonial .row .decoration {
+    text-decoration: none;
+}
 .fa.fa-quote-left {
     font-size: 34px;
     color: #ff523b;
 }
 
 .col-3 p {
-    font-size: 12px;
+    font-size: 14px;
     margin: 12px 0;
     color: #777;
 }
@@ -274,7 +275,7 @@ small {
 }
 .btnComment {
     padding: 10px;
-    background-color: orangered;
+    background-color: rgba(119, 0, 236, 0.8);
     color: white;
     border-radius: 30px;
     box-shadow: 4px 4px 10px rgba(0,0,0,.9)
@@ -369,10 +370,10 @@ ul {
 .dropdown{
     height: 50px;
 }
-.dropdown h3 {
-    color: black;
-    font-weight: bold;
-}
+    .dropdown h3 {
+        color: black;
+        font-weight: bold;
+    }
     .dropdown .decoration {
         text-decoration: none
     }

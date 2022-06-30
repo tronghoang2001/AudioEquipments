@@ -10,34 +10,33 @@
             </li>
             <li>
                 <div class="dropdown">
-                    <a href="@Url.Action("Index","ThietBiAmThanh")" class="decoration"><h3>Home</h3></a>
+                    <a href="@Url.Action("Index","ThietBiAmThanh")" class="decoration"><h3>Trang chủ</h3></a>
                 </div>
             </li>
             <li>
                 <div class="dropdown">
-                    <a href="#down" class="decoration"><h3>Products</h3></a>
+                    <a href="#down" class="decoration"><h3>Sản phẩm</h3></a>
                     <div class="dropdown-content">
                         @Html.Action("LoaiSanPham", "ThietBiAmThanh")
                     </div>
                 </div>
             <li>
                 <div class="dropdown">
-                    <h3>About</h3>
+                    <h3>Thông tin</h3>
                 </div>
             </li>
             <li>
                 <div class="dropdown">
-                    <a class="decoration" href="@Url.Action("LienHe", "ThietBiAmThanh")"><h3>Contact</h3></a>
+                    <a class="decoration" href="@Url.Action("LienHe", "ThietBiAmThanh")"><h3>Liên hệ</h3></a>
                 </div>
             </li>
             <li>
                 <div class="dropdown">
-                    <h3>Account</h3>
+                    <h3>Tài khoản</h3>
                     <div class="dropdown-content">
                         <a href="@Url.Action("DangNhap", "NguoiDung")"><p>Đăng nhập</p></a>
                         <a href="@Url.Action("DangKy", "NguoiDung")"><p>Đăng ký</p></a>
                         <a href="@Url.Action("layKhachHang", "NguoiDung")"><p>Đổi mật khẩu</p></a>
-                        
                     </div>
                 </div>
             </li>

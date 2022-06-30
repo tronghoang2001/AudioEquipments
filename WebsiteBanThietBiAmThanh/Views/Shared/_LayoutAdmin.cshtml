@@ -9,7 +9,7 @@
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/Content/adminlayout.css" />
     <script src="~/tinymce/js/tinymce/tinymce.min.js"></script>
-    <script> tinymce.init({ selector: 'textarea' });</script>
+    <script>tinymce.init({ selector: 'textarea' });</script>
 </head>
 <body>
     <div class="header"></div>
@@ -22,49 +22,75 @@
     <div class="footer" @*style="margin-top:100px"*@>
         <div class="container">
             <div class="row">
+                <div>
 
-                <!--phan dowload app-->
-                <div class="footer-col-1">
+                    <!--Begin thoitiet.vn Weather Widget --><iframe src="https://thoitiet.vn/embed/lxmuwrubyp?days=5&hC=%23ffffff&hB=%23FF0000&tC=%23848484&bC=%23FF0000&lC=%23dddddd" id="widgeturl" width="100%" height="297" scrolling="no" frameborder="0" allowtransparency="true" style="border:none;overflow:hidden;"></iframe><!-- End Widget -->
+                    <div class="footer">
+                        <div class="container">
+                            <div class="row">
 
-                    <h3>Dowload Our App</h3>
+                                <!--phan dowload app-->
+                                <div class="footer-col-1">
 
-                    <p>Dowload App for Android and ios mobile phone.</p>
-                    <div class="app-logo">
-                        <img src="~/Content/images/play-store.png">
-                        <img src="~/Content/images/app-store.png">
+                                    <h3>Dowload Our App</h3>
+
+                                    <p>Dowload App for Android and ios mobile phone.</p>
+                                    <div class="app-logo">
+                                        <img src="~/Content/images/play-store.png">
+                                        <img src="~/Content/images/app-store.png">
+                                    </div>
+                                </div>
+                                <!--logo footer-->
+                                <div class="footer-col-2">
+                                    <img src="~/Content/images/logoTop.png">
+                                    <p>Our aim is Bringing joy and sustainable benefits to music lovers</p>
+                                </div>
+                                <!--Useful links-->
+                                <div class="footer-col-3">
+                                    <h3>Useful Links</h3>
+                                    <ul>
+                                        <li>Coupons</li>
+                                        <li>Blog Post</li>
+                                        <li>Return Policy</li>
+                                        <li>Become Affiliate</li>
+                                    </ul>
+                                </div>
+                                <!--follow us-->
+                                <div class="footer-col-4">
+                                    <h3>Follow us</h3>
+                                    <ul>
+                                        <li>Facebook</li>
+                                        <li>Twitter</li>
+                                        <li>Instagram</li>
+                                        <li>Youtube</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--chan footer-->
+                            <hr>
+                            <p class="copyright">Copyright 2022 - Website Thiết Bị Âm Thanh - Nhóm 8</p>
+                        </div>
                     </div>
-                </div>
-                <!--logo footer-->
-                <div class="footer-col-2">
-                    <img src="~/Content/images/logoTop.png">
-                    <p>Our aim is Bringing joy and sustainable benefits to music lovers</p>
-                </div>
-                <!--Useful links-->
-                <div class="footer-col-3">
-                    <h3>Useful Links</h3>
-                    <ul>
-                        <li>Coupons</li>
-                        <li>Blog Post</li>
-                        <li>Return Policy</li>
-                        <li>Become Affiliate</li>
-                    </ul>
-                </div>
-                <!--follow us-->
-                <div class="footer-col-4">
-                    <h3>Follow us</h3>
-                    <ul>
-                        <li>Facebook</li>
-                        <li>Twitter</li>
-                        <li>Instagram</li>
-                        <li>Youtube</li>
-                    </ul>
+                    <!--chan footer-->
+                    <hr>
+                    <p class="copyright">Đồ Án Môn Lập Trình Web-Nhóm 8</p>
                 </div>
             </div>
-            <!--chan footer-->
-            <hr>
-            <p class="copyright">Đồ Án Môn Lập Trình Web-Nhóm 8</p>
-        </div>
-    </div>
-    <!--end footer-->
+            <!--end footer-->
 </body>
 </html>
+
+<script src="https://cdn.tiny.cloud/1/y3lyotveui9s8kmg5qlzh1663srigpa12trnoobnrkwj51f5/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea',
+        plugins: 'a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker',
+        toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter image editimage pageembed permanentpen table tableofcontents',
+        toolbar_mode: 'floating',
+        tinycomments_mode: 'embedded',
+        tinycomments_author: 'Author name',
+        cleanup: true,
+        preformatted: true,
+        verify_html: false,
+    });
+</script>
