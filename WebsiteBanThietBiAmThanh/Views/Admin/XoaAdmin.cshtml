@@ -1,0 +1,49 @@
+﻿@model WebsiteBanThietBiAmThanh.Models.Admin
+
+@{
+    ViewBag.Title = "XoaAdmin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xác nhận xóa tài khoản admin</h2>
+
+<h3>Bạn có muốn xóa tài khoản admin này?</h3>
+<div>
+    <h4>Admin</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserAdmin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserAdmin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassAdmin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassAdmin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hoten)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hoten)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete"/> |
+            @Html.ActionLink("Về trang quản lý admin", "Index")
+        </div>
+    }
+</div>

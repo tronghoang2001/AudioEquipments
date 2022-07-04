@@ -41,7 +41,7 @@
 
         <dd>
         <dd style="width:600px;text-align:justify">
-            @Html.DisplayFor(model => model.chiTietSP)
+            @Html.Raw(HttpUtility.HtmlDecode(Model.chiTietSP))
         </dd>
 
         <dt>

@@ -396,6 +396,8 @@
     <Content Include="Views\Admin\XoaLienHe.cshtml" />
     <Content Include="Views\Admin\TaiKhoanAdmin.cshtml" />
     <Content Include="Views\Admin\ThemMoiAdmin.cshtml" />
+    <Content Include="Views\Admin\XoaAdmin.cshtml" />
+    <Content Include="Views\Admin\SuaAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

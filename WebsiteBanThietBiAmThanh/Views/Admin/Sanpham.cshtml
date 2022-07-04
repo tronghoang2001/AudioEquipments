@@ -45,6 +45,7 @@
     </tr>
 
 @foreach (var item in Model) {
+    String truncate = Truncate(item.chiTietSP, 100).ToString();
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.tenSanPham)
@@ -56,7 +57,7 @@
             <img style="width:50px;height:50px" src="@Url.Content("~/Content/images/"+ item.hinhAnhSP)" />
         </td>
         <td>
-            @Truncate(item.chiTietSP, 100)
+            @Html.Raw(HttpUtility.HtmlDecode(truncate))
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.LoaiSanPham.tenLoai)

@@ -76,7 +76,7 @@ namespace WebsiteBanThietBiAmThanh.Controllers
             else
             {
                 //gán  giá trị cho đối tượng được tạo mới(ad)
-                Admin nv = db.Admins.SingleOrDefault(n => n.UserAdmin == tendn && n.PassAdmin == matkhau);
+                Admin nv = db.Admins.SingleOrDefault(n => n.UserAdmin == tendn && n.PassAdmin == CreateMD5(matkhau));
                 if (nv != null)
                 {
                     //ViewBag.ThongBao = "Chúc mừng đăng nhập thành công";
@@ -521,8 +521,64 @@ namespace WebsiteBanThietBiAmThanh.Controllers
             db.SubmitChanges();
             return RedirectToAction("TaiKhoanAdmin");
         }
-        //xÓA tài khoản
+        //Xóa tin tức
+        [HttpGet]
+        public ActionResult XoaAdmin(int id)
+        {
+            var ad = db.Admins.FirstOrDefault(n => n.idAdmin == id);
+            ad.idAdmin = id;
+            if (ad == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(ad);
 
+        }
+        [HttpPost, ActionName("XoaAdmin")]
+        public ActionResult XacNhanXoaAdmin(int id)
+        {
+            //Lấy đối tượng tin tức theo mã
+            var ad = db.Admins.SingleOrDefault(n => n.idAdmin == id);
+            ad.idAdmin = id;
+            if (ad == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            db.Admins.DeleteOnSubmit(ad);
+            db.SubmitChanges();
+            return RedirectToAction("TaiKhoanAdmin");
+        }
+
+        // Chỉnh sửa thông tin loại sản phẩm
+        [HttpGet]
+        public ActionResult SuaAdmin(int id)
+        {
+            //lay ra doi tuong admin theo ma
+            var ad = db.Admins.SingleOrDefault(n => n.idAdmin == id);
+
+            if (ad == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(ad);
+        }
+
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult SuaAdmin(int id, FormCollection collection)
+        {
+            var ad = db.Admins.SingleOrDefault(n => n.idAdmin == id);
+            ad.idAdmin = id;
+
+            //luu vao CSDL
+            UpdateModel(ad);
+            db.SubmitChanges();
+            return RedirectToAction("TaiKhoanAdmin");
+        }
 
 
         //Tin tức
@@ -601,7 +657,7 @@ namespace WebsiteBanThietBiAmThanh.Controllers
 
         }
         [HttpPost,ActionName("XoaTinTuc")]
-        public ActionResult XoaNhanXoaTinTuc(int id)
+        public ActionResult XacNhanXoaTinTuc(int id)
         {
             //Lấy đối tượng tin tức theo mã
             TinTuc tintuc = db.TinTucs.SingleOrDefault(n => n.idTinTuc == id);

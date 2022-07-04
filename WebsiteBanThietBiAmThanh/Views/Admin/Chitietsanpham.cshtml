@@ -39,8 +39,8 @@
         </dt>
 
         <dd>
-            <dd style="width:600px;text-align:justify">
-            @Html.DisplayFor(model => model.chiTietSP)
+        <dd style="width:600px;text-align:justify">
+            @Html.Raw(HttpUtility.HtmlDecode(Model.chiTietSP))
         </dd>
 
         <dt>
