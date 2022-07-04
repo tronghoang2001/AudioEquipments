@@ -76,7 +76,7 @@ namespace WebsiteBanThietBiAmThanh.Controllers
             else
             {
                 //gán  giá trị cho đối tượng được tạo mới(ad)
-                Admin nv = db.Admins.SingleOrDefault(n => n.UserAdmin == tendn && n.PassAdmin == CreateMD5(matkhau));
+                Admin nv = db.Admins.SingleOrDefault(n => n.UserAdmin == tendn && n.PassAdmin == matkhau);
                 if (nv != null)
                 {
                     //ViewBag.ThongBao = "Chúc mừng đăng nhập thành công";
