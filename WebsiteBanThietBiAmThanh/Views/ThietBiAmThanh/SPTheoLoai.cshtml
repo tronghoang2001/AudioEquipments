@@ -5,6 +5,7 @@
 }
 <link rel="stylesheet" href="~/Content/bootstrap.css" />
 <link rel="stylesheet" href="~/Content/style.css" />
+<link rel="stylesheet" href="~/Content/zalo.css" />
 @Html.Partial("Menu")
 <div class="small-container" style="margin-top:150px">
     <div id="down">
@@ -12,8 +13,8 @@
     </div>
     <form asp-controller="ThietBiAmThanh" asp-action="SPTheoLoai">
         <p class="search">
-            <input type="text" name="SearchString" class="inputSearch"/>
-            <input type="submit" value="Tìm kiếm" class="btnSearch"/>
+            <input type="text" name="SearchString" class="inputSearch" />
+            <input type="submit" value="Tìm kiếm" class="btnSearch" />
         </p>
     </form>
     <div class="row">
@@ -37,3 +38,6 @@
 </div>
 @Html.Partial("brands")
 @Html.Partial("Footer")
+
+<!--zalo-->
+@Html.Partial("Zalo")

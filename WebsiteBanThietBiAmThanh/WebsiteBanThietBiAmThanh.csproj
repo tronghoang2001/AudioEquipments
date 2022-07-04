@@ -218,6 +218,7 @@
     <Content Include="Content\style.css" />
     <Content Include="Content\thongtinkhachhang.css" />
     <Content Include="Content\XacNhanDonHang.css" />
+    <Content Include="Content\zalo.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -398,6 +399,7 @@
     <Content Include="Views\Admin\ThemMoiAdmin.cshtml" />
     <Content Include="Views\Admin\XoaAdmin.cshtml" />
     <Content Include="Views\Admin\SuaAdmin.cshtml" />
+    <Content Include="Views\Shared\Zalo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
