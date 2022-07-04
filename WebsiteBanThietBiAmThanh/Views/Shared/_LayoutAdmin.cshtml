@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/Content/adminlayout.css" />
+    <link rel="stylesheet" href="~/Content/Phone.css" />
     <script src="~/tinymce/js/tinymce/tinymce.min.js"></script>
     <script>tinymce.init({ selector: 'textarea' });</script>
+
+
 </head>
 <body>
     <div class="header"></div>
@@ -18,66 +21,78 @@
         @RenderBody()
     </div>
 
-    <!--footer-->
-    <div class="footer" @*style="margin-top:100px"*@>
-        <div class="container">
-            <div class="row">
-                <div>
 
-                    <!--Begin thoitiet.vn Weather Widget --><iframe src="https://thoitiet.vn/embed/lxmuwrubyp?days=5&hC=%23ffffff&hB=%23FF0000&tC=%23848484&bC=%23FF0000&lC=%23dddddd" id="widgeturl" width="100%" height="297" scrolling="no" frameborder="0" allowtransparency="true" style="border:none;overflow:hidden;"></iframe><!-- End Widget -->
-                    <div class="footer">
-                        <div class="container">
-                            <div class="row">
+</body>
 
-                                <!--phan dowload app-->
-                                <div class="footer-col-1">
-
-                                    <h3>Dowload Our App</h3>
-
-                                    <p>Dowload App for Android and ios mobile phone.</p>
-                                    <div class="app-logo">
-                                        <img src="~/Content/images/play-store.png">
-                                        <img src="~/Content/images/app-store.png">
-                                    </div>
-                                </div>
-                                <!--logo footer-->
-                                <div class="footer-col-2">
-                                    <img src="~/Content/images/logoTop.png">
-                                    <p>Our aim is Bringing joy and sustainable benefits to music lovers</p>
-                                </div>
-                                <!--Useful links-->
-                                <div class="footer-col-3">
-                                    <h3>Useful Links</h3>
-                                    <ul>
-                                        <li>Coupons</li>
-                                        <li>Blog Post</li>
-                                        <li>Return Policy</li>
-                                        <li>Become Affiliate</li>
-                                    </ul>
-                                </div>
-                                <!--follow us-->
-                                <div class="footer-col-4">
-                                    <h3>Follow us</h3>
-                                    <ul>
-                                        <li>Facebook</li>
-                                        <li>Twitter</li>
-                                        <li>Instagram</li>
-                                        <li>Youtube</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!--chan footer-->
-                            <hr>
-                            <p class="copyright">Copyright 2022 - Website Thiết Bị Âm Thanh - Nhóm 8</p>
+<!--footer-->
+<div class="footer" @*style="margin-top:100px"*@>
+    <div class="container">
+        <div class="row">
+            <div>
+                <div class="hotline-phone-ring-wrap">
+                    <div class="hotline-phone-ring">
+                        <div class="hotline-phone-ring-circle"></div>
+                        <div class="hotline-phone-ring-circle-fill"></div>
+                        <div class="hotline-phone-ring-img-circle">
+                            <a href="tel:0814464801" class="pps-btn-img">
+                                <img src="https://i.pinimg.com/originals/93/75/e5/9375e50b51f54ce8e4b1b0d6cf126b7c.png" alt="Gọi điện thoại" width="100">
+                            </a>
                         </div>
                     </div>
-                    <!--chan footer-->
-                    <hr>
-                    <p class="copyright">Đồ Án Môn Lập Trình Web-Nhóm 8</p>
+                    <div class="hotline-bar">
+                        <a href="tel:0814464801">
+                            <span class="text-hotline">0814.464.801</span>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <!--end footer-->
-</body>
+                <div class="footer">
+                    <div class="container">
+                        <div class="row">
+
+                            <!--phan dowload app-->
+                            <div class="footer-col-1">
+
+                                <h3>Dowload Our App</h3>
+
+                                <p>Dowload App for Android and ios mobile phone.</p>
+                                <div class="app-logo">
+                                    <img src="~/Content/images/play-store.png">
+                                    <img src="~/Content/images/app-store.png">
+                                </div>
+                            </div>
+                            <!--logo footer-->
+                            <div class="footer-col-2">
+                                <img src="~/Content/images/logoTop.png">
+                                <p>Our aim is Bringing joy and sustainable benefits to music lovers</p>
+                            </div>
+                            <!--Useful links-->
+                            <div class="footer-col-3">
+                                <h3>Useful Links</h3>
+                                <ul>
+                                    <li>Coupons</li>
+                                    <li>Blog Post</li>
+                                    <li>Return Policy</li>
+                                    <li>Become Affiliate</li>
+                                </ul>
+                            </div>
+                            <!--follow us-->
+                            <div class="footer-col-4">
+                                <h3>Follow us</h3>
+                                <ul>
+                                    <li>Facebook</li>
+                                    <li>Twitter</li>
+                                    <li>Instagram</li>
+                                    <li>Youtube</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--chan footer-->
+
+                        <hr>
+                        <p class="copyright">Đồ Án Môn Lập Trình Web-Nhóm 8</p>
+                    </div>
+                </div>
+
 </html>
 
 <script src="https://cdn.tiny.cloud/1/y3lyotveui9s8kmg5qlzh1663srigpa12trnoobnrkwj51f5/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>

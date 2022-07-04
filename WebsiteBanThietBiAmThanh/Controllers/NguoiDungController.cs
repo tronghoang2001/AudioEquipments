@@ -109,11 +109,6 @@ namespace WebsiteBanThietBiAmThanh.Controllers
         //GET
         public ActionResult DoiMatKhau(int id)
         {
-            //Kiểm tra đăng nhập
-            if (Session["Taikhoan"] == null || Session["Taikhoan"].ToString() == "")
-            {
-                return RedirectToAction("DangNhap", "NguoiDung");
-            }
             var khachhang = db.KhachHangs.FirstOrDefault(n => n.idKhachHang == id);
             return View(khachhang);
         }
@@ -123,7 +118,7 @@ namespace WebsiteBanThietBiAmThanh.Controllers
         {
             //Tạo 1 biến khachhang với đối tương id = id truyền vào
             var khachhang = db.KhachHangs.First(n => n.idKhachHang == id);
-            var matkhaumoi = collection["matKhauMoi"];
+            var matkhaumoi = MaHoa.GetMD5(collection["matKhauMoi"]);
             var nhaplaimatkhaumoi = collection["nhapLaiMKMoi"];
             khachhang.idKhachHang = id;
             //Nếu người dùng không nhập mk mới và nhập lại mk mới
@@ -137,7 +132,7 @@ namespace WebsiteBanThietBiAmThanh.Controllers
             }
             else
             {
-                khachhang.matKhauKH = matkhaumoi;
+                khachhang.matKhauKH = MaHoa.GetMD5(matkhaumoi);
                 //Update trong CSDL
                 UpdateModel(khachhang);
                 db.SubmitChanges();
@@ -145,7 +140,55 @@ namespace WebsiteBanThietBiAmThanh.Controllers
             }
             return this.DoiMatKhau(id);
         }
-        public ActionResult layKhachHang()
+
+        //GET
+        public ActionResult SuaThongTin(int id)
+        {
+            var khachhang = db.KhachHangs.FirstOrDefault(n => n.idKhachHang == id);
+            return View(khachhang);
+        }
+        //POST
+        [HttpPost]
+        public ActionResult SuaThongTin(int id, FormCollection collection)
+        {
+            //Tạo 1 biến khachhang với đối tương id = id truyền vào
+            var khachhang = db.KhachHangs.First(n => n.idKhachHang == id);
+            var hoten = collection["hoTenKH"];
+            var sdt = collection["sdtKH"];
+            var diachi = collection["diaChi"];
+            var taikhoan = collection["taikhoan"];
+            khachhang.idKhachHang = id;
+            //Nếu người dùng không nhập mk mới và nhập lại mk mới
+            if (string.IsNullOrEmpty(hoten))
+            {
+                ViewData["Loi1"] = "Chưa nhập họ tên!";
+            }
+            if (string.IsNullOrEmpty(sdt))
+            {
+                ViewData["Loi2"] = "Chưa nhập số điện thoại!";
+            }
+            if (string.IsNullOrEmpty(diachi))
+            {
+                ViewData["Loi3"] = "Chưa nhập địa chỉ!";
+            }
+            if (string.IsNullOrEmpty(taikhoan))
+            {
+                ViewData["Loi4"] = "Chưa nhập tài khoản!";
+            }
+            else
+            {
+                khachhang.hoTenKH = hoten;
+                khachhang.soDienThoaiKH = sdt;
+                khachhang.diaChiKH = diachi;
+                khachhang.taiKhoanKH = taikhoan;
+                //Update trong CSDL
+                UpdateModel(khachhang);
+                db.SubmitChanges();
+                return RedirectToAction("DangNhap");
+            }
+            return this.SuaThongTin(id);
+        }
+        public ActionResult ThongTinKhachHang()
         {
             //Kiểm tra đăng nhập
             if (Session["Taikhoan"] == null || Session["Taikhoan"].ToString() == "")

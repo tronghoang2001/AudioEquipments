@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+﻿﻿﻿@import url('https://fonts.googleapis.com/css?family=Varela+Round');
 
 html, body {
     overflow-x: hidden;
@@ -56,6 +56,8 @@ body {
     transform: translateX(-250px);
     transition: transform 250ms ease-in-out;
     background: linear-gradient(180deg, #FC466B 0%, #3F5EFB 100%);
+    /* ctrl shift R để xóa bộ nhớ đệm r load lại trang*/
+    z-index: 3;
 }
 
 .sidebarMenuInner {

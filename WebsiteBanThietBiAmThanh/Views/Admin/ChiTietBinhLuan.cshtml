@@ -1,0 +1,41 @@
+﻿@model WebsiteBanThietBiAmThanh.Models.BinhLuan
+
+@{
+    ViewBag.Title = "ChiTietBinhLuan";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<br />
+<h2 style="text-align:center">CHI TIẾT BÌNH LUẬN CỦA KHÁCH HÀNG</h2>
+<br />
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt style="padding-right:48px">
+            ID:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idKhachHang)
+        </dd>
+
+        <dt>
+            Họ và tên:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hoTenNguoiBL)
+        </dd>
+
+        <dt>
+            Nội dung:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.noiDungBL)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Trở về", "BinhLuan")
+</p>

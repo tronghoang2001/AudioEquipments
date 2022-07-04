@@ -1,0 +1,52 @@
+﻿@model WebsiteBanThietBiAmThanh.Models.BinhLuan
+
+@{
+    ViewBag.Title = "XoaBinhLuan";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<br />
+<h2>XÓA BÌNH LUẬN</h2>
+<h3>Bạn quyết định xóa bình luận này chứ?</h3>
+<br />
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            ID:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idKhachHang)
+        </dd>
+
+        <dt>
+            Họ và tên:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hoTenNguoiBL)
+        </dd>
+
+        <dt>
+            Nội dung:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.noiDungBL)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @Html.ActionLink("Trở về", "BinhLuan") |
+            <input type="submit" value="Xóa" style="background-color:darkred; color:white" class="btn btn-group" />
+        </div>
+    }
+</div>
+

@@ -1,0 +1,59 @@
+﻿@model WebsiteBanThietBiAmThanh.Models.KhachHang
+
+@{
+    ViewBag.Title = "ChiTietKhach";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<br />
+<h2 style="text-align: center">THÔNG TIN CHI TIẾT VỀ KHÁCH HÀNG</h2>
+<br />
+<div>
+    <hr />
+
+    <dl class="dl-horizontal">
+
+        <dt style="text-align:left">
+            Họ và tên khách hàng:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hoTenKH)
+        </dd>
+
+        <dt style="text-align:left">
+            Số điện thoại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.soDienThoaiKH)
+        </dd>
+
+        <dt style="text-align:left">
+            Địa chỉ:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diaChiKH)
+        </dd>
+
+        <dt style="text-align:left">
+            Tài khoản:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.taiKhoanKH)
+        </dd>
+
+        <dt style="text-align:left">
+            Mật khẩu:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.matKhauKH)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Trở Về", "Khach")
+</p>

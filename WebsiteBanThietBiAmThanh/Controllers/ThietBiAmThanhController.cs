@@ -133,7 +133,7 @@ namespace WebsiteBanThietBiAmThanh.Controllers
 
         public ActionResult HienThiTinTuc()
         {
-            var tintucmoi = DSTinTuc(3);
+            var tintucmoi = DSTinTuc(4);
             return View(tintucmoi);
         }
         public ActionResult ChiTietTinTuc(int id)

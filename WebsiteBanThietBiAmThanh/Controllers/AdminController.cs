@@ -19,7 +19,16 @@ namespace WebsiteBanThietBiAmThanh.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            return View();
+            //CHECK SESSION
+            if (Session["Taikhoanadmin"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                //Login:hàm, admin:Controller
+                return RedirectToAction("Login", "Admin");
+            }
         }
         public ActionResult  Sanpham(int ? page)
          {
@@ -329,55 +338,192 @@ namespace WebsiteBanThietBiAmThanh.Controllers
         {
             return View(db.ThuongHieus.ToList());
         }
-        [HttpGet]
-        public ActionResult ThemMoiThuongHieuSanPham()
+        public ActionResult XemBanDo()
         {
-            ViewBag.idThuongHieu = new SelectList(db.ThuongHieus.ToList().OrderBy(n => n.hinhAnhTH), "idThuongHieu", "hinhAnhTH");
+            return View();
+        }
+        public ActionResult XemThoiTiet()
+        {
+            return View();
+        }
+
+        //khách hang
+        public ActionResult Khach(int? page)
+        {
+            int pageNumber = (page ?? 1);
+            int pageSize = 7;
+            return View(db.KhachHangs.ToList().OrderBy(n => n.idKhachHang).ToPagedList(pageNumber, pageSize));
+        }
+        //chi tiet khách hàng
+        public ActionResult ChiTietKhach(int id)
+        {
+            //lấy ra đối tượng sách theo mã
+            KhachHang kh = db.KhachHangs.SingleOrDefault(n => n.idKhachHang == id);
+            ViewBag.idKhachHang = kh.idKhachHang;
+            if (kh == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(kh);
+        }
+        //xóa khách
+        [HttpGet]
+        public ActionResult XoaKhach(int id)
+        {
+            //lấy ra đối tượng khách cần xóa
+            KhachHang kh = db.KhachHangs.SingleOrDefault(n => n.idKhachHang == id);
+            ViewBag.idKhachHang = kh.idKhachHang;
+            if (kh == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(kh);
+        }
+        [HttpPost, ActionName("XoaKhach")]
+        public ActionResult XacNhanXoaKhach(int id)
+        {
+            //lấy ra đối tượng khách cần xóa
+            KhachHang kh = db.KhachHangs.SingleOrDefault(n => n.idKhachHang == id);
+            ViewBag.idKhachHang = kh.idKhachHang;
+            if (kh == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            db.KhachHangs.DeleteOnSubmit(kh);
+            db.SubmitChanges();
+            return RedirectToAction("Khach");
+        }
+
+
+        //Bình luận
+        public ActionResult BinhLuan(int? page)
+        {
+            int pageNumber = (page ?? 1);
+            int pageSize = 7;
+            return View(db.BinhLuans.ToList().OrderBy(n => n.idBinhLuan).ToPagedList(pageNumber, pageSize));
+        }
+        //xem bình luận chi tiết
+        public ActionResult ChiTietBinhLuan(int id)
+        {
+            //lấy ra đối tượng sách theo mã
+            BinhLuan bl = db.BinhLuans.SingleOrDefault(n => n.idBinhLuan == id);
+            ViewBag.idBinhLuan = bl.idBinhLuan;
+            if (bl == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(bl);
+        }
+        //xóa khách
+        [HttpGet]
+        public ActionResult XoaBinhLuan(int id)
+        {
+            //lấy ra đối tượng khách cần xóa
+            BinhLuan bl = db.BinhLuans.SingleOrDefault(n => n.idBinhLuan == id);
+            ViewBag.idBinhLuan = bl.idBinhLuan;
+            if (bl == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(bl);
+        }
+        [HttpPost, ActionName("XoaBinhLuan")]
+        public ActionResult XacNhanXoaBinhLuan(int id)
+        {
+            //lấy ra đối tượng khách cần xóa
+            BinhLuan bl = db.BinhLuans.SingleOrDefault(n => n.idBinhLuan == id);
+            ViewBag.idBinhLuan = bl.idBinhLuan;
+            if (bl == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            db.BinhLuans.DeleteOnSubmit(bl);
+            db.SubmitChanges();
+            return RedirectToAction("BinhLuan");
+        }
+
+
+
+        //Liên hệ
+        public ActionResult LienHe(int? page)
+        {
+            int pageNumber = (page ?? 1);
+            int pageSize = 7;
+            return View(db.LienHes.ToList().OrderBy(n => n.idlienHe).ToPagedList(pageNumber, pageSize));
+        }
+        //xem liên hệ chi tiết
+        public ActionResult ChiTietLienHe(int id)
+        {
+            //lấy ra đối tượng sách theo mã
+            LienHe lh = db.LienHes.SingleOrDefault(n => n.idlienHe == id);
+            ViewBag.idlienHe = lh.idlienHe;
+            if (lh == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(lh);
+        }
+        [HttpGet]
+        public ActionResult XoaLienHe(int id)
+        {
+            //lấy ra đối tượng khách cần xóa
+            LienHe lh = db.LienHes.SingleOrDefault(n => n.idlienHe == id);
+            ViewBag.idlienHe = lh.idlienHe;
+            if (lh == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(lh);
+        }
+        [HttpPost, ActionName("XoaLienHe")]
+        public ActionResult XacNhanXoaLienHe(int id)
+        {
+            //lấy ra đối tượng khách cần xóa
+            LienHe lh = db.LienHes.SingleOrDefault(n => n.idlienHe == id);
+            ViewBag.idlienHe = lh.idlienHe;
+            if (lh == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            db.LienHes.DeleteOnSubmit(lh);
+            db.SubmitChanges();
+            return RedirectToAction("LienHe");
+        }
+
+        //Tài khoản
+        public ActionResult TaiKhoanAdmin(int? page)
+        {
+            int pageNumber = (page ?? 1);
+            int pageSize = 7;
+            return View(db.Admins.ToList().OrderBy(n => n.idAdmin).ToPagedList(pageNumber, pageSize));
+        }
+
+
+        [HttpGet]
+        public ActionResult ThemMoiAdmin()
+        {
             return View();
         }
         [HttpPost]
-        [ValidateInput(false)]
-        public ActionResult ThemMoiThuongHieuSanPham(ThuongHieu thuongHieu, HttpPostedFileBase fileUpload)
+        public ActionResult ThemMoiAdmin(Admin admin)
         {
-            // ViewBag.idLoai = new SelectList(db.LoaiSanPhams.ToList().OrderBy(n => n.tenLoai), "idLoai", "tenLoai");
-            ViewBag.idThuongHieu = new SelectList(db.ThuongHieus.ToList().OrderBy(n => n.hinhAnhTH), "idThuongHieu", "hinhAnhTH");
-
-            if (fileUpload == null)
-            {
-                ViewBag.Thongbao = "Vui lòng chọn ảnh ";
-                return View();
-            }
-            else
-            {
-                if (ModelState.IsValid)
-                //luu ten file
-                {
-                    var fileName = Path.GetFileName(fileUpload.FileName);
-                    //luu duong dan cua file
-                    var path = Path.Combine(Server.MapPath("~/Content/images"), fileName);
-                    //kiem tra hinh anh ton tai chua
-                    if (System.IO.File.Exists(path))
-                    {
-                        ViewBag.Thongbao = "Hình ảnh đã tồn tại";
-                    }
-                    else
-                    {
-                        // luu hinh anh vao duong dan
-                        fileUpload.SaveAs(path);
-                    }
-                    thuongHieu.hinhAnhTH = fileName;
-                    //  sanPham.hinhAnhSP = fileName;
-                    //luu vao CSDL
-                    // db.SanPhams.InsertOnSubmit(sanPham);
-                    db.ThuongHieus.InsertOnSubmit(thuongHieu);
-                    db.SubmitChanges();
-                }
-
-
-                return RedirectToAction("ThuongHieu");
-
-            }
+            //luu vao CSDL
+            db.Admins.InsertOnSubmit(admin);
+            db.SubmitChanges();
+            return RedirectToAction("TaiKhoanAdmin");
         }
+        //xÓA tài khoản
+
+
 
         //Tin tức
         public ActionResult TinTuc(int ?page)

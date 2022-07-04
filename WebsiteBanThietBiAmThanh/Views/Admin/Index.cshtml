@@ -9,33 +9,58 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </head>
 <body>
-
+    <style>
+        .container {
+            max-width: none;
+            width: 100%;
+            padding: 0;
+        }
+        /*  img ở strong item*/
+        .item > img {
+            height: 700px !important;
+        }
+    </style>
     <div class="container">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
-                @*<li data-target="#myCarousel" data-slide-to="2"></li>*@
+                <li data-target="#myCarousel" data-slide-to="2"></li>
             </ol>
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
+
                 <div class="item active">
-                    <img src="~/Content/images/loa-di-dong-bluetooth-lg-ph1-didongviet.jpg" alt="Los Angeles" style="width:auto; height:500px;">
+                    <img src="https://cdn.sforum.vn/sforum/wp-content/uploads/2020/08/Samsung-Galaxy-Buds-Live-noise-cancelling-true-wireless-earbuds-10-1340x754-1.jpg" alt="SamSung" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>SamSung</h3>
+                        <p>Tai Nghe Bluetooth SamSung Buds Pro</p>
+                    </div>
                 </div>
 
                 <div class="item">
-                    <img src="~/Content/images/loaHarman.png" alt="Chicago" style="width:auto; height:500px;" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/168314/loa-bluetooth-sony-srs-xb21-den-1-1-org.jpg" alt="Sony" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>Sony</h3>
+                        <p>Loa Bluetooth Sony Extra Bass SRS-XB21!</p>
+                    </div>
                 </div>
 
-                @*<div class="item">
-                        <img src="~/Content/images/taingheAKG.jpg" alt="New york" style="width:600px; height:500px;">
-                    </div>*@
+                <div class="item">
+                    <img src="https://www.lg.com/vn/images/loa-di-dong/md07512653/gallery/dm-03.jpg" alt="LG" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>LG</h3>
+                        <p>LG XBOOMGo PL7W</p>
+                    </div>
+                </div>
+
             </div>
 
             <!-- Left and right controls -->
@@ -52,6 +77,4 @@
 
 </body>
 </html>
-
-
 

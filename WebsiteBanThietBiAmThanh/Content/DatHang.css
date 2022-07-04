@@ -18,6 +18,11 @@
         height: 40px;
         border-radius: 5px
     }
+.col-lg-7 .card-body {
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    margin: 8px
+}
 #payment {
     position: absolute;
     left: 720px;
@@ -28,3 +33,6 @@
         background: rgba(119, 0, 236, 0.8);
         color: white;
     }
+nav ul li {
+    padding-top: 10px
+}

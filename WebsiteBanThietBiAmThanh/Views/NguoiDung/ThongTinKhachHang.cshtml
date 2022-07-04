@@ -1,0 +1,39 @@
+﻿@using WebsiteBanThietBiAmThanh.Models
+@{
+    KhachHang kh = (KhachHang)Session["Taikhoan"];
+}
+
+<link href="~/Content/thongtinkhachhang.css" rel="stylesheet" />
+<link href="~/Content/style.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+
+@Html.Partial("Menu")
+    <div class="container">
+        <div class="card" style="margin-bottom:50px">
+            <div class="container-fliud">
+                <div class="wrapper row">
+                    <div class="details col-md-6">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.ValidationSummary(true)
+                            <h4 class="smallTitle">Tên khách hàng: <span>@kh.hoTenKH</span></h4>
+                            <h4 class="smallTitle">Số điện thoại: <span>@kh.soDienThoaiKH</span></h4>
+                            <h4 class="smallTitle">Địa chỉ: <span>@kh.diaChiKH</span></h4>
+                            <h4 class="smallTitle">Tên đăng nhập: <span>@kh.taiKhoanKH</span></h4>
+                            <div class="action">
+                                <a class="add-to-cart" type="button" href="@Url.Action("DoiMatKhau", "NguoiDung", new { id = kh.idKhachHang })"
+                                   style="color:black">Đổi mật khẩu</a>
+                                <a class="add-to-cart" type="button" href="@Url.Action("SuaThongTin", "NguoiDung", new { id = kh.idKhachHang })">Sửa thông tin</a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@Html.Partial("Footer")

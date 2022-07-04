@@ -1,0 +1,41 @@
+﻿@@model WebsiteBanThietBiAmThanh.Models.LienHe
+
+@{
+    ViewBag.Title = "ChiTietLienHe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<br />
+<h2 style="padding-left:50px">THÔNG TIN CHI TIẾT LIÊN HỆ</h2>
+<br />
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            ID:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idKhachHang)
+        </dd>
+
+        <dt>
+            Họ và tên:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hoTenNguoiLH)
+        </dd>
+
+        <dt>
+            Nội dung:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.noiDungLH)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Trở về", "LienHe")
+</p>

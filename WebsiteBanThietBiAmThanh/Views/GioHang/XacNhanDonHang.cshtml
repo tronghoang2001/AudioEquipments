@@ -2,11 +2,11 @@
     ViewBag.Title = "XacNhanDonHang";
     Layout = null;
 }
-
+<link rel="stylesheet" href="~/Content/bootstrap.css"/>
 <link rel="stylesheet" href="~/Content/XacNhanDonHang.css" />
 <body>
     <h2>Cảm ơn quý khách đã đặt hàng, chúng tôi sẽ gọi điện cho quý khách để xác nhận đơn hàng trong ít phút tới!</h2>
-    <button>
-        @Html.ActionLink("VỀ TRANG CHỦ", "Index", "ThietBiAmThanh")
-    </button>
+    <a class="btn btn-default" href="@Url.Action("Index","ThietBiAmThanh")">
+        Về trang chủ
+    </a>
 </body>

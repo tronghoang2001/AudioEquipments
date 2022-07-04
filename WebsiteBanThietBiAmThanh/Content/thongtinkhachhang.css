@@ -1,0 +1,55 @@
+﻿
+.action a:hover {
+    text-decoration: none;
+}
+.card {
+    margin-top: 150px;
+}
+.details {
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.1);
+    padding-bottom: 50px;
+    padding-top: 30px;
+    border-radius: 10px;
+    border: 10px solid rgba(119, 0, 236, 0.8);
+    background-color: #eee;
+}
+.action {
+    padding-top: 10px
+}
+.container-fliud {
+    padding-left: 185px; 
+    padding-right: 185px;
+}
+.product-title, .smallTitle, .sizes, .colors {
+    font-weight: bold;
+}
+
+    .checked, .smallTitle span {
+        color: rgba(119, 0, 236, 0.8);
+    }
+
+.product-title, .rating, .product-description, .price, .vote, .sizes {
+    margin-bottom: 15px;
+}
+
+.product-title {
+    margin-top: 0;
+}
+
+.add-to-cart, .like {
+    background: rgba(119, 0, 236, 0.8);
+    padding: 12px;
+    border: none;
+    text-transform: UPPERCASE;
+    font-weight: bold;
+    color: black;
+    -webkit-transition: background .3s ease;
+    transition: background .3s ease;
+    border-radius: 25px;
+}
+
+    .add-to-cart:hover, .like:hover {
+        background: rgba(86, 236, 214, 1);
+        color: black;
+    }
+

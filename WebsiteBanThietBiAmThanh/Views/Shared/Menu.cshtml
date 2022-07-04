@@ -1,13 +1,9 @@
 ﻿<div class="navbar" id="fixed">
     <nav>
+        <a id="logoMenu" href="@Url.Action("Index","ThietBiAmThanh")">
+            <img src="~/Content/images/logoTop.png" width="200">
+        </a>
         <ul id="MenuItems">
-            <li>
-                <div class="logo">
-                    <a href="@Url.Action("Index","ThietBiAmThanh")">
-                        <img src="~/Content/images/logoTop.png" width="200">
-                    </a>
-                </div>
-            </li>
             <li>
                 <div class="dropdown">
                     <a href="@Url.Action("Index","ThietBiAmThanh")" class="decoration"><h3>Trang chủ</h3></a>
@@ -22,7 +18,7 @@
                 </div>
             <li>
                 <div class="dropdown">
-                    <h3>Thông tin</h3>
+                    <a href="#downfooter" class="decoration"><h3>Thông tin</h3></a>
                 </div>
             </li>
             <li>
@@ -36,7 +32,7 @@
                     <div class="dropdown-content">
                         <a href="@Url.Action("DangNhap", "NguoiDung")"><p>Đăng nhập</p></a>
                         <a href="@Url.Action("DangKy", "NguoiDung")"><p>Đăng ký</p></a>
-                        <a href="@Url.Action("layKhachHang", "NguoiDung")"><p>Đổi mật khẩu</p></a>
+                        <a href="@Url.Action("ThongTinKhachHang", "NguoiDung")"><p>Thông tin</p></a>
                     </div>
                 </div>
             </li>

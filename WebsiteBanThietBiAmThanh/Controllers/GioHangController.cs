@@ -108,7 +108,7 @@ namespace WebsiteBanThietBiAmThanh.Controllers
         {
             //Lấy giỏ hàng từ Session
             List<GioHang> lstGioHang = LayGioHang();
-            //Kiểm tra sách đã có trong Session["Giohang"]?
+            //Kiểm tra sản phẩm đã có trong Session["Giohang"]?
             GioHang sanpham = lstGioHang.SingleOrDefault(n => n.iIdSanPham == iMaSP);
             //Nếu tồn tại thì cho sửa soLuong
             if (sanpham != null)
@@ -271,7 +271,6 @@ namespace WebsiteBanThietBiAmThanh.Controllers
                     {
                         //Thanh toán thành công
                         ViewBag.Message = "Thanh toán thành công hóa đơn " + orderId + " | Mã giao dịch: " + vnpayTranId;
-                        Session["Giohang"] = null;
                     }
                     else
                     {

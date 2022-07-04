@@ -1,0 +1,56 @@
+﻿@model @using WebsiteBanThietBiAmThanh.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<WebsiteBanThietBiAmThanh.Models.BinhLuan>
+
+@helper Truncate(string input, int length)
+{               if (input.Length < length)
+    {
+@input }
+                else
+                {
+@input.Substring(0, length)<text>...</text>}
+}
+
+@{ ViewBag.Title = "BinhLuan";
+                Layout = "~/Views/Shared/_LayoutAdmin.cshtml"; }
+<br />
+<h2 style="text-align: center">QUẢN LÝ BÌNH LUẬN KHÁCH HÀNG</h2>
+<br />
+<table class="table">
+    <tr>
+        <th style="width:80px">ID</th>
+        <th style="width:300px">Họ tên người bình luận</th>
+        <th style="width:1000px">Nội dung bình luận</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.idKhachHang)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.hoTenNguoiBL)
+    </td>
+    <td>
+        @Truncate(item.noiDungBL, 200)
+    </td>
+    <td>
+        @Html.ActionLink("Chi tiết", "ChiTietBinhLuan", new { id = item.idBinhLuan }) |
+        @Html.ActionLink("Xóa", "XoaBinhLuan", new { id = item.idBinhLuan })
+    </td>
+</tr>}
+
+</table>
+<!--Tạo liên kết trang-->
+Trang @(Model.PageCount< Model.PageNumber ? 0: Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("BinhLuan", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
+

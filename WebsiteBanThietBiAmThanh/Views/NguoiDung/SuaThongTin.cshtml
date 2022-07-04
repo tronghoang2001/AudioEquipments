@@ -1,0 +1,73 @@
+﻿@model WebsiteBanThietBiAmThanh.Models.KhachHang
+
+@{
+    ViewBag.Title = "SuaThongTin";
+    Layout = null;
+}
+
+<link rel="stylesheet" href="~/Content/DoiMatKhau.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/dist/mdb5/standard/core.min.css">
+<link rel="stylesheet" id="roboto-subset.css-css" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/mdb5/fonts/roboto-subset.css?ver=3.9.0-update.5" type="text/css" media="all">
+
+<div class="vh-100 bg-image">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                    <div class="card">
+                        <div class="card-body p-5">
+                            <h2 class="text-uppercase text-center mb-5">
+                                <a href="@Url.Action("Index","ThietBiAmThanh")">
+                                    <img src="~/Content/images/logoTop.png" width="150" />
+                                </a>CẬP NHẬT THÔNG TIN
+                            </h2>
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    @Html.HiddenFor(model => model.idKhachHang)
+
+                                    <div class="form-outline mb-4">
+                                        <input class="form-control form-control-lg" id="hoTenKH" name="hoTenKH" type="text" value="@Model.hoTenKH">
+                                        @ViewData["Loi1"]
+                                        <label class="form-label" for="form3Example3cg">Họ tên khách hàng</label>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <input class="form-control form-control-lg" id="sdtKH" name="sdtKH" type="number" value="@Model.soDienThoaiKH">
+                                        @ViewData["Loi2"]
+                                        <label class="form-label" for="form3Example3cg">Số điện thoại</label>
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <input class="form-control form-control-lg" id="diaChi" name="diaChi" type="text" value="@Model.diaChiKH">
+                                        @ViewData["Loi3"]
+                                        <label class="form-label" for="form3Example3cg">Địa chỉ</label>
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <input class="form-control form-control-lg" id="taikhoan" name="taikhoan" type="text" value="@Model.taiKhoanKH">
+                                        @ViewData["Loi4"]
+                                        <label class="form-label" for="form3Example3cg">Tài khoản</label>
+                                    </div>
+
+                                    <div class="d-flex justify-content-center">
+                                        <input type="submit" value="Cập nhật" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" />
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MDB -->
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.js"></script>
+
+

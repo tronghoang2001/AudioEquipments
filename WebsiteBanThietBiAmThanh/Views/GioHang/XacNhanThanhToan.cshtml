@@ -4,10 +4,11 @@
     Layout = null;
 }
 <link rel="stylesheet" href="~/Content/XacNhanDonHang.css" />
+<link rel="stylesheet" href="~/Content/bootstrap.css" />
 <body>
     <h2>@ViewBag.Message</h2>
-    <button>
-        @Html.ActionLink("VỀ TRANG CHỦ", "Index", "ThietBiAmThanh")
-    </button>
+    <a class="btn btn-default" href="@Url.Action("DatHang","GioHang")">
+        Về trang đặt hàng
+    </a>
 </body>
 
