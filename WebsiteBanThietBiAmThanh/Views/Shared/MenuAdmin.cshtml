@@ -1,0 +1,69 @@
+﻿@using WebsiteBanThietBiAmThanh.Models
+@{ 
+    Admin ad = (Admin)Session["Taikhoanadmin"];
+}
+
+<nav class="navbar navbar-expand-xl" style="border-bottom: 2px solid #f5a623">
+    <div class="container h-100">
+        <a class="navbar-brand" href="@Url.Action("Index","Admin")">
+            <h1 class="tm-site-title mb-0">TRANG QUẢN LÝ</h1>
+        </a>
+        <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars tm-nav-icon"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto h-100" style="list-style-type: none;">
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index","Admin")">
+                        <i class="fas fa-tachometer-alt"></i> Trang Chủ
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="dropdown" >
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="far fa-file-alt"></i>
+                        <span> Quản Lý <i class="fas fa-angle-down"></i> </span>
+                    </a>
+                        <a class="dropdown-content" href="@Url.Action("TinTuc","Admin")">Tin Tức</a>
+                        <a class="dropdown-content" href="#">Loại Sản Phẩm</a>
+                        <a class="dropdown-content" href="#">Khách Hàng</a>
+                        <a class="dropdown-content" href="#">Liên hệ</a>
+                        <a class="dropdown-content" href="#">Bình Luận</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("SanPham","Admin")">
+                        <i class="fas fa-shopping-cart"></i> Sản Phẩm
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="accounts.html">
+                        <i class="far fa-user"></i> Tài khoản
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-cog"></i>
+                        <span> Cài Đặt <i class="fas fa-angle-down"></i> </span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Profile</a>
+                        <a class="dropdown-item" href="#">Billing</a>
+                        <a class="dropdown-item" href="#">Customize</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav" style="list-style-type: none;">
+                @if (HttpContext.Current.Session["Taikhoanadmin"] != null)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link d-block" href="@Url.Action("LogOut","Admin")">
+                            @ad.UserAdmin, <b>Đăng xuất</b>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>

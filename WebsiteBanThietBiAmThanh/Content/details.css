@@ -68,7 +68,7 @@ img {
     color: black;
     -webkit-transition: background .3s ease;
     transition: background .3s ease;
-    border-radius: 25px;
+    border-radius: 5px;
 }
 
     .add-to-cart:hover, .like:hover {

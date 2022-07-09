@@ -37,11 +37,13 @@
                         </div>
                         <h4 class="smallTitle">Tên sản phẩm: <span>@Model.tenSanPham</span></h4>
                         <h4 class="smallTitle">Giá: <span>@String.Format("{0:0,0}", Model.giaSanPham) VNĐ</span></h4>
-                        <p class="product-description">@Model.chiTietSP</p>
+                        <p class="product-description">@Html.Raw(HttpUtility.HtmlDecode(Model.chiTietSP))</p>
                         <div class="action">
                             <a class="add-to-cart" type="button" href="@Url.Action("ThemGioHang", "GioHang", new { @iIDSanPham = @Model.idSanPham, @strURL=Request.Url.ToString() })"
-                               style="color:black">ĐẶT MUA</a>
-                            <a class="add-to-cart" type="button" href="@Url.Action("Index","ThietBiAmThanh")">Xem thêm sản phẩm...</a>
+                               style="color:black">Thêm Vào Giỏ Hàng</a>
+                            <a class="add-to-cart" type="button" href="@Url.Action("DatHang", "GioHang")"
+                               style="color:black">Đặt Hàng</a>
+                            <a class="add-to-cart" type="button" href="@Url.Action("Index","ThietBiAmThanh")">Xem Thêm Sản Phẩm...</a>
                         </div>
                     </div>
                 </div>

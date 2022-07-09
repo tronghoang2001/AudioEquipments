@@ -1,9 +1,13 @@
-﻿<div class="navbar" id="fixed">
+﻿@using WebsiteBanThietBiAmThanh.Models
+@{
+    KhachHang kh = (KhachHang)Session["Taikhoan"];
+}
+<div class="navbar" id="fixed">
     <nav>
         <a id="logoMenu" href="@Url.Action("Index","ThietBiAmThanh")">
-            <img src="~/Content/images/logoTop.png" width="200">
+            <img src="~/Content/images/logoTop.png" width="200" data-aos="fade-down" style="transition: 1.5s">
         </a>
-        <ul id="MenuItems">
+        <ul id="MenuItems" data-aos="fade-down" style="transition: 1.5s">
             <li>
                 <div class="dropdown">
                     <a href="@Url.Action("Index","ThietBiAmThanh")" class="decoration"><h3>Trang chủ</h3></a>
@@ -26,16 +30,31 @@
                     <a class="decoration" href="@Url.Action("LienHe", "ThietBiAmThanh")"><h3>Liên hệ</h3></a>
                 </div>
             </li>
-            <li>
-                <div class="dropdown">
-                    <h3>Tài khoản</h3>
-                    <div class="dropdown-content">
-                        <a href="@Url.Action("DangNhap", "NguoiDung")"><p>Đăng nhập</p></a>
-                        <a href="@Url.Action("DangKy", "NguoiDung")"><p>Đăng ký</p></a>
-                        <a href="@Url.Action("ThongTinKhachHang", "NguoiDung")"><p>Thông tin</p></a>
+            @if (HttpContext.Current.Session["Taikhoan"] != null)
+            {
+                <li>
+                    <div class="dropdown">
+                        <a class="decoration" href="@Url.Action("ThongTinKhachHang", "NguoiDung")">
+                        <h3>Xin chào @kh.taiKhoanKH!</h3></a>
+                        <div class="dropdown-content">
+                            <a href="@Url.Action("ThongTinKhachHang", "NguoiDung")"><p>Thông tin</p></a>
+                            <a href="@Url.Action("DangXuat", "NguoiDung")"><p>Đăng xuất</p></a>
+                        </div>
                     </div>
-                </div>
-            </li>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <div class="dropdown">
+                        <h3>Tài khoản</h3>
+                        <div class="dropdown-content">
+                            <a href="@Url.Action("DangNhap", "NguoiDung")"><p>Đăng nhập</p></a>
+                            <a href="@Url.Action("DangKy", "NguoiDung")"><p>Đăng ký</p></a>
+                        </div>
+                    </div>
+                </li>
+            }
             <li>@Html.Action("GioHangPartial", "GioHang")</li>
         </ul>
     </nav>

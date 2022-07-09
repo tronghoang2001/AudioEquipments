@@ -24,12 +24,22 @@ namespace WebsiteBanThietBiAmThanh.Controllers
         public ActionResult Index(int ? page)
         {
             //Tạo biến quy định số sản phẩm trên mỗi trang 
-            int pageSize = 4;
+            int pageSize = 12;
             //Tạo biến số trang
             int pageNum = (page ?? 1);
             //lấy 12 sản phẩm theo id
             var sanphammoi = LaySanPham(12);
             return View(sanphammoi.ToPagedList(pageNum,pageSize));
+        }
+        public ActionResult SanPham(int? page)
+        {
+            //Tạo biến quy định số sản phẩm trên mỗi trang 
+            int pageSize = 12;
+            //Tạo biến số trang
+            int pageNum = (page ?? 1);
+            //lấy 12 sản phẩm theo id
+            var sanphammoi = LaySanPham(12);
+            return View(sanphammoi.ToPagedList(pageNum, pageSize));
         }
         public ActionResult LoaiSanPham()
         {

@@ -4,56 +4,70 @@
     Layout = null;
 }
 
-<!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/dist/mdb5/standard/core.min.css">
-    <link rel="stylesheet" id="roboto-subset.css-css" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/mdb5/fonts/roboto-subset.css?ver=3.9.0-update.5" type="text/css" media="all">
-    <link rel="stylesheet" href="~/Content/StyeAd.css" />
-    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Page - Product Admin Template</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    <!-- https://fonts.google.com/specimen/Open+Sans -->
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css">
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="~/Content/templatemo-style.css">
+    <!--
+    Product Admin CSS Template
+    https://templatemo.com/tm-524-product-admin
+    -->
 </head>
+
 <body>
-    <section class="vh-100 gradient-custom" style="background-color: gray ">
-        <div class="container py-5 h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                    <div class="card bg-dark text-white" style="border-radius: 1rem;">
-                        <div class="card-body p-5 text-center">
-
-                            <div class="mb-md-5 mt-md-4 pb-5">
-
-                                <h2 class="fw-bold mb-2 text-uppercase">Đăng nhập với tư cách quản trị viên</h2>
+    <div class="container tm-mt-big tm-mb-big">
+        <div class="row">
+            <div class="col-12 mx-auto tm-login-col">
+                <div class="tm-bg-primary-dark tm-block tm-block-h-auto" style="border: 10px outset #f5a623">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h2 class="tm-block-title mb-4">ĐĂNG NHẬP VÀO TRANG QUẢN LÝ</h2>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-12">
+                            <div class="tm-login-form">
                                 @ViewBag.Thongbao
                                 @using (Html.BeginForm())
                                 {
                                     @Html.ValidationSummary(true)
-                                    <div class="form-outline form-white mb-4">
-                                        <input type="text" name="username" id="typeEmailX" class="form-control form-control-lg" />
-                                        <label class="form-label" for="typeEmailX">Tài Khoản</label>
+                                    <div class="form-group">
+                                        <label for="username">Tên đăng nhập</label>
                                         @ViewData["Loi1"]
+                                        <input name="username" type="text" class="form-control validate" id="username" placeholder="Nhập tên đăng nhập">
                                     </div>
-
-                                    <div class="form-outline form-white mb-4">
-                                        <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" />
-                                        <label class="form-label" for="typePasswordX">Mật Khẩu</label>
+                                    <div class="form-group mt-3">
+                                        <label for="password">Mật khẩu</label>
                                         @ViewData["Loi2"]
+                                        <input name="password" type="password" class="form-control validate" id="password" placeholder="Nhập mật khẩu">
                                     </div>
-                                    <button class="btn btn-outline-light btn-lg px-5" type="submit">Đăng nhập</button>
+                                    <div class="form-group mt-4">
+                                        <button type="submit" class="btn btn-primary btn-block text-uppercase">
+                                            Đăng Nhập
+                                        </button>
+                                    </div>
                                 }
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+
+
 </body>
 </html>
-
-<!-- MDB -->
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.js"></script>

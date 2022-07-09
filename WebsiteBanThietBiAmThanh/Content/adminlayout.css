@@ -19,7 +19,7 @@ body {
     max-width: 100%;
     box-shadow: none;
     background-color: #FC466B;
-    position: fixed;
+    position: static;
     height: 60px !important;
     overflow: hidden;
     z-index: 10;

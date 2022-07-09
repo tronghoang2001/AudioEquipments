@@ -1,6 +1,4 @@
-﻿@using WebsiteBanThietBiAmThanh.Models
-@using PagedList.Mvc;
-@model PagedList.PagedList<WebsiteBanThietBiAmThanh.Models.TinTuc>
+﻿@model PagedList.PagedList<WebsiteBanThietBiAmThanh.Models.TinTuc>
 
 @helper Truncate(string input, int length) { 
         if(input.Length < length)
@@ -15,65 +13,89 @@
 
 @{
     ViewBag.Title = "TinTuc";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = null;
 }
 
-<h2>Tin tức</h2>
+<html lang="en">
+<head>
+    <title>Product Page - Admin HTML Template</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    <!-- https://fonts.google.com/specimen/Roboto -->
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css">
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="~/Content/templatemo-style.css">
+    <!--
+    Product Admin CSS Template
+    https://templatemo.com/tm-524-product-admin
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
 
-<p>
-    @Html.ActionLink("THÊM MỚI TIN TỨC", "ThemTinTuc")
-</p>
-<table class="table">
-    <tr>
-        <th width="200">
-            Tiêu đề tin
-        </th>
-        <th>
-            Nội dung tin
-        </th>
-        <th>
-            Ảnh bìa tin
-        </th>
-        <th>
-            Ngày soạn
-        </th>
-        <th>
-            Thao tác
-        </th>
-        <th></th>
-    </tr>
+<body id="reportsPage">
+    @Html.Partial("MenuAdmin")
+    <div class="container mt-5">
+        <div class="row tm-content-row">
+            <div class="tm-bg-primary-dark tm-block tm-block-products" style="border-radius: 10px">
+                <div class="tm-product-table-container">
+                    <h2 class="tm-block-title d-inline-block">Quản Lý Tin Tức</h2>
+                    <table class="table table-hover tm-table-small tm-product-table">
+                        <thead>
+                            <tr>
 
-    @foreach (var item in Model)
-    {
-        String truncate = Truncate(item.noiDungTin, 128).ToString();
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.tieuDeTin)
-            </td>
-            <td>
-                @Html.Raw(HttpUtility.HtmlDecode(truncate))
-            </td>
-            <td>
-                <img src="~/Content/images/@item.anhBiaTin" width="150"/>
-            </td>
-            <td>
-                @String.Format("{0:dd/MM/yyyy}", item.NgaySoan)
-            </td>
-            <td>
-                @Html.ActionLink("Sửa", "SuaTinTuc", new { id = item.idTinTuc }) |
-                @Html.ActionLink("Chi tiết", "ChiTietTinTuc", new { id = item.idTinTuc }) |
-                @Html.ActionLink("Xóa", "XoaTinTuc", new { id = item.idTinTuc })
-            </td>
-        </tr>
-    }
-</table>
-@*Tạo liên kết trang*@
-Trang@(Model.PageCount<Model.PageNumber ? 0: Model.PageNumber)/@Model.PageCount;
-<div class="MenuTrang" style="display: block; margin-left: auto; margin-right: auto;">
-    @Html.PagedListPager(Model, page => Url.Action("TinTuc", new { Page = page }))
-</div>
-<style>
-    .MenuTrang li {
-        display: inline;
-    }
-</style>
+                                <th scope="col">TIÊU ĐỀ TIN</th>
+                                <th scope="col">ẢNH BÌA</th>
+                                <th scope="col">NỘI DUNG</th>
+                                <th scope="col" width="10%">NGÀY SOẠN</th>
+                                <th scope="col">&nbsp;</th>
+                                <th scope="col">&nbsp;</th>
+                            </tr>
+                        </thead>
+
+                        @foreach (var item in Model)
+                        {
+                            String truncate = Truncate(item.noiDungTin, 128).ToString();
+                            <tbody>
+                                <tr>
+                                    <td class="tm-product-name">@Html.DisplayFor(modelItem => item.tieuDeTin)</td>
+                                    <td><img src="~/Content/images/@item.anhBiaTin" width="150" /></td>
+                                    <td>@Html.Raw(HttpUtility.HtmlDecode(truncate))</td>
+                                    <td>@String.Format("{0:dd/MM/yyyy}", item.NgaySoan)</td>
+                                    <td>
+                                        <a href="@Url.Action("XoaTinTuc", new { id = item.idTinTuc })" class="tm-product-delete-link">
+                                            <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a id="btnEdit" href="@Url.Action("SuaTinTuc", new { id = item.idTinTuc })">
+                                            <p>SỬA</p>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        }
+
+                    </table>
+                </div>
+                <!-- table container -->
+                <a href="@Url.Action("ThemTinTuc", "Admin")" class="btn btn-primary btn-block text-uppercase mb-3" style="border-radius: 5px">Thêm tin tức mới</a>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("FooterAdmin")
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script>
+        $(function () {
+            $(".tm-product-name").on("click", function () {
+                window.location.href = "edit-product.html";
+            });
+        });
+    </script>
+
+</body>
+</html>

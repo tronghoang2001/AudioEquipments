@@ -7,7 +7,7 @@
 }
     @foreach (var sanpham in Model)
     {
-        <div class="col-4">
+        <div class="col-4" data-aos="fade-up" style="transition: 1.5s">
             <a href="@Url.Action("Details", "ThietBiAmThanh", new { id = sanpham.idSanPham})">
                 <img src="~/Content/images/@sanpham.hinhAnhSP">
                 <h4>@sanpham.tenSanPham</h4>

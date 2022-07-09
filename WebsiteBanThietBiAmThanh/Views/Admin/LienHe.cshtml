@@ -19,7 +19,6 @@
 <table class="table">
     <tr>
         <th style="width:80px">ID</th>
-        <th style="width:300px">Họ tên người liên hệ</th>
         <th style="width:1000px">Nội dung liên hệ</th>
         <th></th>
     </tr>
@@ -30,9 +29,6 @@
 
     <td>
         @Html.DisplayFor(modelItem => item.idKhachHang)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.hoTenNguoiLH)
     </td>
     <td>
         @Truncate(item.noiDungLH, 100)

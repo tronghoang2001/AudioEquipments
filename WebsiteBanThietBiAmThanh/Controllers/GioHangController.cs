@@ -133,12 +133,11 @@ namespace WebsiteBanThietBiAmThanh.Controllers
             {
                 return RedirectToAction("DangNhap", "NguoiDung");
             }
-            if (Session["Giohang"] == null)
+            List<GioHang> lstGioHang = LayGioHang();
+            if (lstGioHang.Count == 0)
             {
                 return RedirectToAction("Index", "ThietBiAmThanh");
             }
-            //Lấy giỏ hàng từ Session
-            List<GioHang> lstGioHang = LayGioHang();
             ViewBag.Tongsoluong = TongSoLuong();
             ViewBag.Tongtien = TongTien();
             return View(lstGioHang);
@@ -156,6 +155,7 @@ namespace WebsiteBanThietBiAmThanh.Controllers
             var ghichudonhang = collection["ghiChuDH"];
 
             dh.idKhachHang = kh.idKhachHang;
+            dh.TenKhachHang = kh.hoTenKH;
             dh.ngayDat = DateTime.Now;
             dh.tenNguoiNhan = tennguoinhan;
             dh.diaChiNguoiNhan = diachinguoinhan;

@@ -1,0 +1,209 @@
+﻿@model PagedList.PagedList<WebsiteBanThietBiAmThanh.Models.DonHang>
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+
+@{
+    ViewBag.Title = "DonHang";
+    Layout = null;
+}
+
+<html lang="en">
+<head>
+    <title>Product Page - Admin HTML Template</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    <!-- https://fonts.google.com/specimen/Roboto -->
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css">
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="~/Content/templatemo-style.css">
+    <!--
+    Product Admin CSS Template
+    https://templatemo.com/tm-524-product-admin
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body id="reportsPage">
+    @Html.Partial("MenuAdmin")
+    <div class="container mt-5">
+
+        <div class="row">
+            <iframe src="https://free.timeanddate.com/clock/i8embac4/n218/szw160/szh160/hocf5a623/hbw0/hfcf5a623/cf100/hncf5a623/fan2/facfff/fnu2/fdi76/mqcfff/mqs4/mql18/mqw4/mqd60/mhcfff/mhs4/mhl5/mhw4/mhd62/mmv0/hhcfff/hhs1/hhb10/hmcfff/hmb10/hscfff/hsw3" style="pointer-events: none; margin-top: -32px; margin-left: 100px" frameborder="0" width="160" height="160"></iframe>
+            <div id="happyNewYear-div">
+                <div>
+                    <span class="days"></span><div class="smalltext">Ngày</div>
+                </div>
+                <div>
+                    <span class="hours"></span><div class="smalltext">Giờ</div>
+                </div>
+                <div>
+                    <span class="minutes"></span><div class="smalltext">Phút</div>
+                </div>
+                <div>
+                    <span class="seconds"></span><div class="smalltext">Giây</div>
+                </div>
+
+
+            </div>
+            <img src="~/Content/images/firework.gif" width="180" style="margin-top:-40px " />
+        </div>
+
+        <a class="weatherwidget-io" href="https://forecast7.com/en/10d82106d63/ho-chi-minh-city/" data-label_1="HO CHI MINH" data-label_2="WEATHER" data-icons="Climacons Animated" data-theme="orange" data-basecolor="#f5a623" data-cloudfill="white" style="margin-bottom:10px; border-radius: 5px">HO CHI MINH WEATHER</a>
+
+        <div class="row tm-content-row">
+            <div class="tm-bg-primary-dark tm-block" style="border-radius: 10px; padding-bottom: 510px">
+                <div class="tm-product-table-container">
+                    <table class="table table-hover tm-table-small tm-product-table">
+                        <thead>
+                            <tr>
+                                <th scope="col" width="600">MÃ ĐƠN HÀNG</th>
+                                <th scope="col" width="600">TÊN KHÁCH HÀNG</th>
+                                <th scope="col" width="600">GHI CHÚ</th>
+                                <th scope="col" width="600">THÀNH TIỀN</th>
+                                <th scope="col" width="600">NGÀY ĐẶT</th>
+                                <th scope="col">&nbsp;</th>
+                            </tr>
+                        </thead>
+
+                        @foreach (var item in Model)
+                        {
+                            <tbody>
+                                <tr>
+                                    <td class="tm-product-name">@Html.DisplayFor(modelItem => item.idDonHang)</td>
+                                    <td>@item.TenKhachHang</td>
+                                    <td>@Truncate(item.ghiChuDH, 50)</td>
+                                    <td>@String.Format("{0:0,0}", item.ThanhTien) VNĐ</td>
+                                    <td>@String.Format("{0:dd-MM-yyyy}", item.ngayDat)</td>
+                                    <td>
+                                        <a href="@Url.Action("XoaDonHang", new { id = item.idDonHang })" class="tm-product-delete-link">
+                                            <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("FooterAdmin")
+
+    <style>
+   
+
+        
+
+        #happyNewYear-div {
+            font-family: sans-serif;
+            color: #fff;
+            display: inline-block;
+            font-weight: 100;
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 10px;
+            margin-top: -38px;
+            margin-left: 25px;
+        }
+
+            #happyNewYear-div > div {
+                padding: 30px;
+                border-radius: 3px;
+                background: #455c71;
+                display: inline-block;
+            }
+
+            #happyNewYear-div div > span {
+                padding: 20px;
+                border-radius: 3px;
+                background: #f5a623;
+                display: inline-block;
+            }
+
+        .smalltext {
+            padding-top: 5px;
+            font-size: 16px;
+        }
+    </style>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script>
+        $(function () {
+            $(".tm-product-name").on("click", function () {
+                window.location.href = "edit-product.html";
+            });
+        });
+    </script>
+    <script>
+        !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
+    </script>
+    <script data-require="jquery" data-semver="3.0.0" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
+    <script>
+        $(function () {
+            var initializeWatchClock = function (id, endtime) {
+                var clock = document.getElementById(id);
+                var daysSpan = clock.querySelector('.days');
+                var hoursSpan = clock.querySelector('.hours');
+                var minutesSpan = clock.querySelector('.minutes');
+                var secondsSpan = clock.querySelector('.seconds');
+
+                var updateWatchClock = function () {
+                    var t = getTimeRemaining(endtime);
+
+                    daysSpan.innerHTML = t.days;
+                    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+                    if (t.total <= 0) {
+                        clearInterval(interval);
+                    }
+                }
+
+                //Update clock Watch!
+                updateWatchClock();
+                var interval = setInterval(updateWatchClock, 1000);
+            };
+
+            var getTimeRemaining = function (endtime) {
+                var t = Date.parse(endtime) - Date.parse(new Date());
+                var seconds = Math.floor((t / 1000) % 60);
+                var minutes = Math.floor((t / 1000 / 60) % 60);
+                var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+                var days = Math.floor(t / (1000 * 60 * 60 * 24));
+
+                return {
+                    'total': t,
+                    'days': days,
+                    'hours': hours,
+                    'minutes': minutes,
+                    'seconds': seconds
+                };
+            };
+
+            //Calculation for happy new year!
+            nextYear = new Date(new Date().getFullYear() + 1, 0, 1);
+            today = Date.parse(new Date());
+            newYearDay = new Date(nextYear);
+            remaningDT = newYearDay - today;
+            remanning = new Date(Date.parse(new Date()) + remaningDT);
+
+            initializeWatchClock('happyNewYear-div', remanning);
+        });
+    </script>
+</body>
+</html>

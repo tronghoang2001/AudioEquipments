@@ -173,13 +173,17 @@
     <Content Include="Content\DoiMatKhau.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\comment.css" />
+    <Content Include="Content\fontawesome.min.css" />
     <Content Include="Content\GioHang.css" />
     <Content Include="Content\images\4b71f8137985eaa992d17a315997791e.jpg" />
     <Content Include="Content\images\anhnen.jpg" />
     <Content Include="Content\images\anhnen1.jpg" />
+    <Content Include="Content\images\Beosound.jpg" />
     <Content Include="Content\images\bgBody.jpg" />
     <Content Include="Content\images\Bose.png" />
     <Content Include="Content\images\dauDiaThan.jpg" />
+    <Content Include="Content\images\firework.gif" />
+    <Content Include="Content\images\firework1.gif" />
     <Content Include="Content\images\G-Dragon.jpg" />
     <Content Include="Content\images\GioHang.png" />
     <Content Include="Content\images\icon close.png" />
@@ -216,6 +220,7 @@
     <Content Include="Content\responsive.css" />
     <Content Include="Content\StyleAd.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\templatemo-style.css" />
     <Content Include="Content\thongtinkhachhang.css" />
     <Content Include="Content\XacNhanDonHang.css" />
     <Content Include="Content\zalo.css" />
@@ -240,6 +245,31 @@
     <Content Include="Content\images\play-store.png" />
     <Content Include="Content\images\pngwing.com %283%29.png" />
     <Content Include="Content\images\taingheApple.png" />
+    <Content Include="jquery-ui-datepicker\AUTHORS.txt" />
+    <Content Include="jquery-ui-datepicker\external\jquery\jquery.js" />
+    <Content Include="jquery-ui-datepicker\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="jquery-ui-datepicker\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="jquery-ui-datepicker\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="jquery-ui-datepicker\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="jquery-ui-datepicker\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="jquery-ui-datepicker\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="jquery-ui-datepicker\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="jquery-ui-datepicker\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="jquery-ui-datepicker\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="jquery-ui-datepicker\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="jquery-ui-datepicker\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="jquery-ui-datepicker\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="jquery-ui-datepicker\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="jquery-ui-datepicker\index.html" />
+    <Content Include="jquery-ui-datepicker\jquery-ui.css" />
+    <Content Include="jquery-ui-datepicker\jquery-ui.js" />
+    <Content Include="jquery-ui-datepicker\jquery-ui.min.css" />
+    <Content Include="jquery-ui-datepicker\jquery-ui.min.js" />
+    <Content Include="jquery-ui-datepicker\jquery-ui.structure.css" />
+    <Content Include="jquery-ui-datepicker\jquery-ui.structure.min.css" />
+    <Content Include="jquery-ui-datepicker\jquery-ui.theme.css" />
+    <Content Include="jquery-ui-datepicker\jquery-ui.theme.min.css" />
+    <Content Include="jquery-ui-datepicker\LICENSE.txt" />
     <Content Include="Properties\kisspng-brand-logo-font-blue-audio-speakers-5a6b9b443891a5.3628081415170015402317.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -248,6 +278,14 @@
       <LastGenOutput>dbThietBiAmThanh.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Scripts\Chart.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\tooplate-scripts.js" />
+    <Content Include="webfonts\fa-brands-400.svg" />
+    <Content Include="webfonts\fa-regular-400.svg" />
+    <Content Include="webfonts\fa-solid-900.svg" />
+    <Content Include="jquery-ui-datepicker\package.json" />
     <None Include="Models\dbThietBiAmThanh.dbml.layout">
       <DependentUpon>dbThietBiAmThanh.dbml</DependentUpon>
     </None>
@@ -400,6 +438,22 @@
     <Content Include="Views\Admin\XoaAdmin.cshtml" />
     <Content Include="Views\Admin\SuaAdmin.cshtml" />
     <Content Include="Views\Shared\Zalo.cshtml" />
+    <Content Include="webfonts\fa-brands-400.eot" />
+    <Content Include="webfonts\fa-brands-400.ttf" />
+    <Content Include="webfonts\fa-brands-400.woff" />
+    <Content Include="webfonts\fa-brands-400.woff2" />
+    <Content Include="webfonts\fa-regular-400.eot" />
+    <Content Include="webfonts\fa-regular-400.ttf" />
+    <Content Include="webfonts\fa-regular-400.woff" />
+    <Content Include="webfonts\fa-regular-400.woff2" />
+    <Content Include="webfonts\fa-solid-900.eot" />
+    <Content Include="webfonts\fa-solid-900.ttf" />
+    <Content Include="webfonts\fa-solid-900.woff" />
+    <Content Include="webfonts\fa-solid-900.woff2" />
+    <Content Include="Views\Shared\MenuAdmin.cshtml" />
+    <Content Include="Views\Shared\FooterAdmin.cshtml" />
+    <Content Include="Views\Admin\DonHang.cshtml" />
+    <Content Include="Views\Admin\XoaDonHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -101,6 +101,13 @@ namespace WebsiteBanThietBiAmThanh.Controllers
             }
             return View();
         }
+
+        public ActionResult DangXuat()
+        {
+            Session["Taikhoan"] = null;
+            Session.Clear();
+            return RedirectToAction("Index", "ThietBiAmThanh");
+        }
         public ActionResult KhachHang()
         {
             var khachhang = from kh in db.KhachHangs select kh;

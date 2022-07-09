@@ -5,62 +5,111 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>CHỈNH SỬA TIN TỨC</h2>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    <!-- https://fonts.google.com/specimen/Roboto -->
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css">
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="~/jquery-ui-datepicker/jquery-ui.min.css" type="text/css">
+    <!-- http://api.jqueryui.com/datepicker/ -->
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="~/Content/templatemo-style.css">
+    <!--
+    Product Admin CSS Template
+    https://templatemo.com/tm-524-product-admin
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-@using (Html.BeginForm("SuaTinTuc", "Admin", FormMethod.Post, new { @enctype="multipart/form-data"}))
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.idTinTuc)
 
-        <div class="form-group">
-            <label class="control-label col-md-2" for="tieuDeTin">Mã tin tức: @Model.idTinTuc</label>
-        </div>
+</head>
 
-        <div class="form-group">
-            <label class="control-label col-md-2" for="tieuDeTin">Tiêu đề tin</label>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.tieuDeTin, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.tieuDeTin, "", new { @class = "text-danger" })
-            </div>
-        </div>
+<body>
+    @Html.Partial("MenuAdmin")
+    <div class="container tm-mt-big tm-mb-big">
+        <div class="row">
+            <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+                <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="tm-block-title d-inline-block">Chỉnh Sửa Tin Tức</h2>
+                        </div>
+                    </div>
+                    @using (Html.BeginForm("SuaTinTuc", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="row tm-edit-product-row">
+                            <div class="col-xl-6 col-lg-6 col-md-12">
+                                <form action="" method="post" class="tm-edit-product-form">
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    @Html.HiddenFor(model => model.idTinTuc)
+                                    <div class="form-group mb-3">
+                                        <label for="name">
+                                            Tiêu đề tin
+                                        </label>
+                                        <input id="name" name="tieuDeTin" type="text" value="@Model.tieuDeTin" class="form-control validate">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="description">Nội dung tin</label>
+                                        <textarea class="form-control validate tm-small" name="noiDungTin" rows="5" required="">@Model.noiDungTin</textarea>
+                                    </div>
 
-        <div class="form-group">
-            <label class="control-label col-md-2" for="noiDungTin">Nội dung tin</label>
-            <div class="col-md-10">
-                <textarea name="noiDungTin">Nội dung tin tức</textarea>
-            </div>
-        </div>
 
-        <div class="form-group">
-            <label class="control-label col-md-2" for="anhBiaTin">Ảnh bìa tin</label>
-            <div class="col-md-10">Chọn ảnh mới
-                <input type="file" name="fileupload"/>
-                <img src="@Url.Content("~/Content/images/" + Model.anhBiaTin)" width="150"/> (Ảnh hiện tại)
-                @*THÔNG BÁO TRÙNG*@
-                @ViewBag.Thongbao
-            </div>
-        </div>
 
-        <div class="form-group">
-            <label class="control-label col-md-2" for="NgaySoan">Ngày soạn</label>
-            <div class="col-md-10">
-                <input type="date" name="NgaySoan"/>
-                @Html.ValidationMessageFor(model => model.NgaySoan, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                </form>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4" style="color:white">
+                                <label for="anhBiaTin">Ảnh bìa tin</label>
+                                <div class="tm-product-img-edit mx-auto">
+                                    <img src="@Url.Content("~/Content/images/" + Model.anhBiaTin)" alt="Ảnh bìa tin" class="img-fluid d-block mx-auto">(Ảnh hiện tại)
+                                    @*THÔNG BÁO TRÙNG*@
+                                    @ViewBag.Thongbao
+                                    <i class="fas fa-cloud-upload-alt tm-upload-icon" onclick="document.getElementById('fileInput').click();"></i>
+                                </div>
+                                <div class="custom-file mt-3 mb-3">
+                                    Chọn ảnh mới
+                                    <input id="fileInput" type="file" name="fileupload" style="display:none;">
+                                    <input type="button" class="btn btn-primary btn-block mx-auto" value="THAY ĐỔI ẢNH BÌA" onclick="document.getElementById('fileInput').click();">
+                                </div>
+                            </div>
+                            <div class="form-group mb-3 col-xs-12 col-sm-6">
+                                <label for="expire_date">
+                                    Ngày soạn
+                                </label>
+                                <input id="expire_date" type="date" name="NgaySoan" value="@Model.NgaySoan" class="form-control validate hasDatepicker" data-large-mode="true">
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary btn-block text-uppercase">CẬP NHẬT</button>
+                                <a class="btn btn-primary btn-block text-uppercase" href="@Url.Action("TinTuc")">Về trang quản lý tin tức</a>
+                            </div>
+                        </div>
+                    }
+                </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
-}
+    @Html.Partial("FooterAdmin")
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="jquery-ui-datepicker/jquery-ui.min.js"></script>
+    <!-- https://jqueryui.com/download/ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script>
+        $(function () {
+            $("#expire_date").datepicker({
+                defaultDate: "10/22/2020"
+            });
+        });
+    </script>
+
+
+    <div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
+</body>
+</html>
+
+
+

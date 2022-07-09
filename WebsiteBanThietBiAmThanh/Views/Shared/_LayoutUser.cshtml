@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/Content/zalo.css" />
+    <link rel="stylesheet" href="~/Content/Phone.css" />
     <link rel="stylesheet" id="roboto-subset.css-css" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/mdb5/fonts/roboto-subset.css?ver=3.9.0-update.5" type="text/css" media="all">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
     <div class="header">
@@ -19,7 +21,7 @@
             <!--banner-->
             <div class="row" id="banner">
 
-                <div class="col-2">
+                <div class="col-2" data-aos="fade-right" style="transition: 1.5s">
                     <h1> Life is a song <br>Love is the music! </h1>
                     <p>
                         Ngôn ngữ của âm nhạc là ngôn ngữ chung của tất cả mọi thế hệ và mọi dân tộc.
@@ -43,13 +45,13 @@
         <div class="categories">
             <div class="row">
                 <div class="col-3">
-                    <img src="~/Content/images/JBL.png">
+                    <img src="~/Content/images/JBL.png" data-aos="fade-right" style="transition: 1.5s">
                 </div>
                 <div class="col-3">
-                    <img src="~/Content/images/taiNgheSamsung2.jpg">
+                    <img src="~/Content/images/taiNgheSamsung2.jpg" data-aos="fade-up" style="transition: 1.5s">
                 </div>
                 <div class="col-3">
-                    <img src="~/Content/images/taiNgheSony3.jpg">
+                    <img src="~/Content/images/Beosound.jpg" data-aos="fade-left" style="transition: 1.5s">
                 </div>
             </div>
         </div>
@@ -58,7 +60,7 @@
     <!--san pham moi-->
     <div class="small-container">
         <div id="down">
-            <h2 class="title">Sản phẩm mới</h2>
+            <h2 class="title" data-aos="fade-right" style="transition: 1.5s">Sản phẩm mới</h2>
         </div>
         <div class="row">
             @RenderBody()
@@ -73,9 +75,9 @@
         <div class="small-container">
             <div class="row">
                 <div class="col-2">
-                    <img src="~/Content/images/loaSony.jpg" class="offer-img">
+                    <img src="~/Content/images/loaSony.jpg" class="offer-img" data-aos="fade-right" style="transition: 1.5s">
                 </div>
-                <div class="col-2">
+                <div class="col-2" data-aos="fade-left" style="transition: 1.5s">
                     <p>Sản phẩm độc quyền tại cửa hàng</p>
                     <h1>Sony SRS-XP700 X-Series</h1>
                     <small>
@@ -92,8 +94,8 @@
     <!--tin tuc-->
     <div class="testimonial">
         <div class="small-container">
-            <h2 class="title">Tin tức về âm nhạc</h2>
-            <div class="row">
+            <h2 class="title" data-aos="fade-right" style="transition: 1.5s">Tin tức về âm nhạc</h2>
+            <div class="row" data-aos="fade-left" style="transition: 1.5s">
                 @Html.Action("HienThiTinTuc", "ThietBiAmThanh")
             </div>
         </div>
@@ -102,22 +104,44 @@
     <!--nhan xet cua khac hang-->
     <div class="testimonial">
         <div class="small-container">
-            <h2 class="title">Bình luận</h2>
-            <div class="row">
+            <h2 class="title" data-aos="fade-right" style="transition: 1.5s">Bình luận</h2>
+            <div class="row" data-aos="fade-left" style="transition: 1.5s">
                 @Html.Action("HienThiBinhLuan", "ThietBiAmThanh")
             </div>
         </div>
     </div>
-    <div class="comment">
+    <div class="comment" data-aos="fade-right" style="transition: 1.5s">
         <h3 class="textComment">"Góp ý của bạn là sự phát triển của chúng tôi!"</h3>
         >>>  <a href="@Url.Action("BinhLuan", "ThietBiAmThanh")" class="btnComment">Bình Luận</a>  <<<
     </div>
     <!--end nhan xet cua khach hang-->
     <!--footer-->
-    @Html.Partial("Footer")
-    <!--end footer-->
-    <!--zalo-->
-    @Html.Partial("Zalo")
+    <div>
 
+        @Html.Partial("Footer")
+        @*<div class="hotline-phone-ring-wrap">
+                <div class="hotline-phone-ring">
+                    <div class="hotline-phone-ring-circle"></div>
+                    <div class="hotline-phone-ring-circle-fill"></div>
+                    <div class="hotline-phone-ring-img-circle">
+                        <a href="tel:0814464801" class="pps-btn-img">
+                            <img src="https://i.pinimg.com/originals/93/75/e5/9375e50b51f54ce8e4b1b0d6cf126b7c.png" alt="Gọi điện thoại" width="100">
+                        </a>
+                    </div>
+                </div>
+                <div class="hotline-bar">
+                    <a href="tel:0814464801">
+                        <span class="text-hotline">0814.464.801</span>
+                    </a>
+                </div>
+            </div>*@
+        <!--end footer-->
+        <!--zalo-->
+        @Html.Partial("Zalo")
+    </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+    AOS.init();
+    </script>
 </body>
 </html>

@@ -89,6 +89,14 @@ namespace WebsiteBanThietBiAmThanh.Controllers
             return View();
 
         }
+
+        public ActionResult LogOut()
+        {
+            Session["Taikhoanadmin"] = null;
+            Session.Clear();
+            return RedirectToAction("Login", "Admin");
+        }
+
         //THÊM MỚI SẢN PHẨM
         [HttpGet]
         public ActionResult Themmoisanpham()
@@ -499,86 +507,125 @@ namespace WebsiteBanThietBiAmThanh.Controllers
             return RedirectToAction("LienHe");
         }
 
-        //Tài khoản
-        public ActionResult TaiKhoanAdmin(int? page)
-        {
-            int pageNumber = (page ?? 1);
-            int pageSize = 7;
-            return View(db.Admins.ToList().OrderBy(n => n.idAdmin).ToPagedList(pageNumber, pageSize));
-        }
+        ////Tài khoản
+        //public ActionResult TaiKhoanAdmin(int? page)
+        //{
+        //    int pageNumber = (page ?? 1);
+        //    int pageSize = 7;
+        //    return View(db.Admins.ToList().OrderBy(n => n.idAdmin).ToPagedList(pageNumber, pageSize));
+        //}
 
 
-        [HttpGet]
-        public ActionResult ThemMoiAdmin()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult ThemMoiAdmin(Admin admin)
-        {
-            //luu vao CSDL
-            db.Admins.InsertOnSubmit(admin);
-            db.SubmitChanges();
-            return RedirectToAction("TaiKhoanAdmin");
-        }
-        //Xóa tin tức
-        [HttpGet]
-        public ActionResult XoaAdmin(int id)
-        {
-            var ad = db.Admins.FirstOrDefault(n => n.idAdmin == id);
-            ad.idAdmin = id;
-            if (ad == null)
-            {
-                Response.StatusCode = 404;
-                return null;
-            }
-            return View(ad);
+        //[HttpGet]
+        //public ActionResult ThemMoiAdmin()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //public ActionResult ThemMoiAdmin(Admin ad, FormCollection collection)
+        //{
+        //    //Gán các giá trị người dùng nhập liệu cho các biến
+        //    var hoten = collection["Hoten"];
+        //    var tendn = collection["UserAdmin"];
+        //    var matkhau = CreateMD5(collection["PassAdmin"]);
+        //    if (String.IsNullOrEmpty(hoten))
+        //    {
+        //        ViewData["Loi1"] = "Họ tên không được trống";
+        //    }
+        //    if (String.IsNullOrEmpty(tendn))
+        //    {
+        //        ViewData["Loi2"] = "Tên đăng nhập không được trống";
+        //    }
+        //    if (String.IsNullOrEmpty(matkhau))
+        //    {
+        //        ViewData["Loi3"] = "Mật khẩu không được trống";
+        //    }
+        //    else
+        //    {
+        //        ad.Hoten = hoten;
+        //        ad.UserAdmin = tendn;
+        //        ad.PassAdmin = CreateMD5(matkhau);
+        //        db.Admins.InsertOnSubmit(ad);
+        //        db.SubmitChanges();
+        //        return RedirectToAction("TaiKhoanAdmin");
+        //    }
+        //    return this.ThemMoiAdmin();
+        //}
+        ////Xóa tin tức
+        //[HttpGet]
+        //public ActionResult XoaAdmin(int id)
+        //{
+        //    var ad = db.Admins.FirstOrDefault(n => n.idAdmin == id);
+        //    ad.idAdmin = id;
+        //    if (ad == null)
+        //    {
+        //        Response.StatusCode = 404;
+        //        return null;
+        //    }
+        //    return View(ad);
 
-        }
-        [HttpPost, ActionName("XoaAdmin")]
-        public ActionResult XacNhanXoaAdmin(int id)
-        {
-            //Lấy đối tượng tin tức theo mã
-            var ad = db.Admins.SingleOrDefault(n => n.idAdmin == id);
-            ad.idAdmin = id;
-            if (ad == null)
-            {
-                Response.StatusCode = 404;
-                return null;
-            }
-            db.Admins.DeleteOnSubmit(ad);
-            db.SubmitChanges();
-            return RedirectToAction("TaiKhoanAdmin");
-        }
+        //}
+        //[HttpPost, ActionName("XoaAdmin")]
+        //public ActionResult XacNhanXoaAdmin(int id)
+        //{
+        //    //Lấy đối tượng tin tức theo mã
+        //    var ad = db.Admins.SingleOrDefault(n => n.idAdmin == id);
+        //    ad.idAdmin = id;
+        //    if (ad == null)
+        //    {
+        //        Response.StatusCode = 404;
+        //        return null;
+        //    }
+        //    db.Admins.DeleteOnSubmit(ad);
+        //    db.SubmitChanges();
+        //    return RedirectToAction("TaiKhoanAdmin");
+        //}
 
-        // Chỉnh sửa thông tin loại sản phẩm
-        [HttpGet]
-        public ActionResult SuaAdmin(int id)
-        {
-            //lay ra doi tuong admin theo ma
-            var ad = db.Admins.SingleOrDefault(n => n.idAdmin == id);
+        //// Chỉnh sửa thông tin loại sản phẩm
+        //[HttpGet]
+        //public ActionResult SuaAdmin(int id)
+        //{
+        //    //lay ra doi tuong admin theo ma
+        //    var ad = db.Admins.SingleOrDefault(n => n.idAdmin == id);
 
-            if (ad == null)
-            {
-                Response.StatusCode = 404;
-                return null;
-            }
-            return View(ad);
-        }
+        //    if (ad == null)
+        //    {
+        //        Response.StatusCode = 404;
+        //        return null;
+        //    }
+        //    return View(ad);
+        //}
 
 
-        [HttpPost]
-        [ValidateInput(false)]
-        public ActionResult SuaAdmin(int id, FormCollection collection)
-        {
-            var ad = db.Admins.SingleOrDefault(n => n.idAdmin == id);
-            ad.idAdmin = id;
-
-            //luu vao CSDL
-            UpdateModel(ad);
-            db.SubmitChanges();
-            return RedirectToAction("TaiKhoanAdmin");
-        }
+        //[HttpPost]
+        //[ValidateInput(false)]
+        //public ActionResult SuaAdmin(int id, FormCollection collection)
+        //{
+        //    //Tạo 1 biến khachhang với đối tương id = id truyền vào
+        //    var ad = db.Admins.First(n => n.idAdmin == id);
+        //    var matkhaumoi = CreateMD5(collection["NewPassAdmin"]);
+        //    var hoten = collection["Hoten"];
+        //    ad.idAdmin = id;
+        //    //Nếu người dùng không nhập mk mới và nhập lại mk mới
+        //    if (string.IsNullOrEmpty(matkhaumoi))
+        //    {
+        //        ViewData["Loi1"] = "Chưa nhập mật khẩu mới!";
+        //    }
+        //    if (string.IsNullOrEmpty(hoten))
+        //    {
+        //        ViewData["Loi2"] = "Chưa nhập lại họ tên mới!";
+        //    }
+        //    else
+        //    {
+        //        ad.Hoten = hoten;
+        //        ad.PassAdmin = CreateMD5(matkhaumoi);
+        //        //Update trong CSDL
+        //        UpdateModel(ad);
+        //        db.SubmitChanges();
+        //        return RedirectToAction("TaiKhoanAdmin");
+        //    }
+        //    return this.SuaAdmin(id);
+        //}
 
 
         //Tin tức
@@ -725,6 +772,50 @@ namespace WebsiteBanThietBiAmThanh.Controllers
                 return this.SuaTinTuc(id);
 
             }
+        }
+
+        //Đơn hàng
+        public ActionResult DonHang(int? page)
+        {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            int pageNumber = (page ?? 1);
+            int pageSize = 30;
+            //return View(db.TinTucs.ToList
+            return View(db.DonHangs.ToList().OrderBy(n => n.idDonHang).ToPagedList(pageNumber, pageSize));
+        }
+
+        //Xóa tin tức
+        [HttpGet]
+        public ActionResult XoaDonHang(int id)
+        {
+            DonHang donhang = db.DonHangs.SingleOrDefault(n => n.idDonHang == id);
+            ViewBag.idDonHang = donhang.idDonHang;
+            if (donhang == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(donhang);
+        }
+        [HttpPost, ActionName("XoaDonHang")]
+        public ActionResult XacNhanXoaDonHang(int id)
+        {
+            //Lấy đối tượng tin tức theo mã
+            DonHang donhang = db.DonHangs.SingleOrDefault(n => n.idDonHang == id);
+            CTDH cthd = db.CTDHs.SingleOrDefault(n => n.idDonHang == id);
+            ViewBag.idDonHang = donhang.idDonHang;
+            if (donhang == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            db.CTDHs.DeleteOnSubmit(cthd);
+            db.DonHangs.DeleteOnSubmit(donhang);
+            db.SubmitChanges();
+            return RedirectToAction("DonHang");
         }
     }
 }
